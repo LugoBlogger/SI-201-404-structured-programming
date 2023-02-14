@@ -14,11 +14,11 @@ Node.js, menjalankan kode JavaScript di Node.js.
 > Tips belajar bahasa pemrograman adalah mengetik ulang perintah yang kita 
 > temukan di buku atau di internet, lalu kita ubah-ubah untuk menguji pemahaman
 > kita sudah tepat atau belum. Faktor bermain-main dan eksplorasi sangat 
-> diperlukan untuk memahami setiap perintah bahasa pemrograman yang kita pelajar.
+> diperlukan untuk memahami setiap perintah bahasa pemrograman yang kita pelajari.
 
 ## Sedikit hal tentang JavaScript
 
-Bagian ini hanya menambahkan sedikit yang sudah dijelaskan dalam kuliah.  
+Bagian ini hanya menambahkan sedikit yang akan (sudah?) dijelaskan dalam kuliah.  
 JavaScript bermula dari pengembangan *web browser* Netscape Navigator. 
 Dalam rilis Navigator tahun 1995, Brendan Eich mengembangkan bahasa pemrograman
 JavaScript. *Web browser* sebelumnya masih sangat statis (tidak dapat 
@@ -68,8 +68,7 @@ berikut:
    me-*refresh* halaman `hello.html` untuk melihat perubahan di jendela
    *console* Google Chrome. Pada tahap ini kita melihat bahwa sebenarnya
    *web browser* sudah memuat suatu program untuk menerjemahkan kode
-   JavaScript tanpa perlu menginstall program untuk menerjemahkan kode
-   JavaScript.   
+   JavaScript tanpa perlu menginstal program tambahan
    <img src="../img-resources/three-windows-to-edit-refresh-update.png" width="600">
 
 ## Instalasi VSCode
