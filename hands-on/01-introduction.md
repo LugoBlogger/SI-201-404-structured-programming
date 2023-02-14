@@ -82,7 +82,16 @@ instalasi VSCode.
    Pilih sesuai dengan jenis sistem operasi yang kita miliki.   
    <img src="../img-resources/download-vscode-installer.png" width="600">
 
-2. Setelah itu jalankan *installer* Windows.
+2. Setelah itu jalankan *installer* Windows dan ikuti perintah yang ditampilkan
+   pada dialog instalasi.
+
+3. Jika telah selesai dilakukan instalasi, maka akan muncul tampilan jendela
+   *Welcome page*
+   <img src="../img-resources/welcome-page-vscode.png" width="600">
+   Berikutnya dapat dipilih *working directory* tempat menaruh berkas-berkas
+   kode JavaScript yang akan dipelajari sepanjang sesi praktikum. 
+   Agar lebih tertata-rapi buat di dalamnya direktori tambahan yang memisahkan
+   berkas-berkas untuk tiap pertemuan, misal: `week-01`, `week-02`, dst.
 
 ## Instalasi `Node.js`
 
@@ -96,12 +105,40 @@ Agar bisa menggunakan berbagai versi `Node.js`, maka diperlukan NVM
 yang ter-*update* hingga Januari 2023.
 
 Tahapan instalasi `Node.js` untuk Window tidak sederhana, namun panduannya bisa
-diikuti dari [NVM for Windows](https://github.com/coreybutler/nvm-windows/wiki#manual-installation). Perlu diingat NVM for Windows sangat berbeda dengan
+diikuti dari 
+1. [NVM for Windows](https://github.com/coreybutler/nvm-windows/wiki#manual-installation). 
+2. [Install NodeJS on Windows](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows)
+
+Perlu diingat NVM for Windows sangat berbeda dengan
 NVM yang ada untuk Mac dan Linux.
 
-Untuk tahapa
+Untuk tahapan instalasi Linux atau Mac sangat mudah, tinggal mengetikan baris- baris perintah berikut di Terminal
+```bash
+# Unduh dan jalankan script untuk menginstall NVM versi 0.39.3
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+# Untuk memverifikasi proses instalasi
+nvm -v 
+
+# Install node.js dan NPM yang bersesuain dengan versi node js 18.13.0
+nvm install 18.13.0
+```
 
 ## Menjalankan kode JavaScript di Node.js
+Setelah proses instalasi VSCode dan Node.js telah berhasil dilakukan, maka
+kita dapat melakukan proses pembelajaran JavaScript lebih mudah.
+
+Dalam direktori yang telah dibuat di dalam VSCode, setelah membuat berkas `.js`
+kita dapat menjalankan kode JavaScript pada bagian terminal di VSCode (jika
+bagian terminal di VSCode belum muncul, klik menu "Terminal" dan pilih 
+"New Terminal").
+
+
+## Tutorial singkat Markdown
+
+Bisa mengikuti panduan berikut: [Markdown Guide](https://www.markdownguide.org/basic-syntax/).
+Di dalam panduan tersebut, kita bisa mencoba satu per satu sintaks yang 
+dimiliki oleh Markdown.
 
 ## Tugas
 > Laporan harus ditulis dan dikumpulkan dalam bentuk berkas 

@@ -1,7 +1,7 @@
 # Hands-on Tutorial for SI 201 404 (Structured Programming)
 
-This is a collection of all hands-on tutorial for the course "Structured
-Programming" at Institut Teknologi Kalimanta. Most of the tutorial
+This is a collection of all hands-on tutorials for the course "Structured
+Programming" at Institut Teknologi Kalimantan. Most of the tutorial
 followed (Flanagan, 2020).
 
 ## References
