@@ -87,7 +87,7 @@ instalasi VSCode.
 
 3. Jika telah selesai dilakukan instalasi, maka akan muncul tampilan jendela
    *Welcome page*
-   <img src="../img-resources/welcome-page-vscode.png" width="600">
+   <img src="../img-resources/welcome-page-vscode.png" width="600">   
    Berikutnya dapat dipilih *working directory* tempat menaruh berkas-berkas
    kode JavaScript yang akan dipelajari sepanjang sesi praktikum. 
    Agar lebih tertata-rapi buat di dalamnya direktori tambahan yang memisahkan
@@ -132,6 +132,12 @@ Dalam direktori yang telah dibuat di dalam VSCode, setelah membuat berkas `.js`
 kita dapat menjalankan kode JavaScript pada bagian terminal di VSCode (jika
 bagian terminal di VSCode belum muncul, klik menu "Terminal" dan pilih 
 "New Terminal").
+
+Arahkan direktory di tempat berkas JavaScript yang ingin dijalankan berada,
+lalu ketik perintah berikut di terminal VSCode.
+```bash
+node nama_file.js
+```
 
 
 ## Tutorial singkat Markdown
