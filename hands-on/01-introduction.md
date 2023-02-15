@@ -27,6 +27,22 @@ sebelum JavaScript
 
 <img src="../img-resources/ncsa-mosaic-1.0.jpg" width="600">
 
+Pada release perdana JavaScript di *web browser* Netscape Navigator 2.0, saat
+itu JavaScript hanya mampu menampilkan *dialog alert box*, belum seperti
+tampilan pada zaman sekarang
+
+<img src="../img-resources/netscape2-first-release-javascript.png" width="600">"
+
+(video selengkapnya dapat dilihat [disini](https://cdn.auth0.com/blog/js-history/netscape2.mp4))
+
+Dibandingkan dengan kemampuan JavaScript di tahun 2022 yang mampu untuk melakukan
+*onlide coding* dan menampilkan hasilnya di *web browser* (sumber: [CodePen: CSS Trigonometric function DNA strand 🤓](https://codepen.io/jh3y/pen/GRBVNJE))   
+
+<img src="../img-resources/animation-using-javascript.png" width="600">   
+
+Di bagian berikutnya kita akan membahas hal yang lebih sederhana yaitu 
+cara untuk menjalankan kode JavaScript di *web browser*.
+
 ## Menjalankan kode JavaScript di *Web Browser*
 
 Berikutnya kita akan mencoba menjalankan kode JavaScript berikut
@@ -110,7 +126,8 @@ diikuti dari
 2. [Install NodeJS on Windows](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows)
 
 Perlu diingat NVM for Windows sangat berbeda dengan
-NVM yang ada untuk Mac dan Linux.
+NVM yang ada untuk Mac dan Linux. Saya menyarankan untuk mengikuti panduan 
+nomor 2, meskipun sebenarnya kedua panduan melakukan instalasi file yang sama.
 
 Untuk tahapan instalasi Linux atau Mac sangat mudah, tinggal mengetikan baris- baris perintah berikut di Terminal
 ```bash
@@ -139,12 +156,22 @@ lalu ketik perintah berikut di terminal VSCode.
 node nama_file.js
 ```
 
+Berikut gambaran menggunakan `Node.js` dan VScode beserta penulisan kode
+JavaScript   
+<img src="../img-resources/nodejs-and-vscode.png" width="800">
+
 
 ## Tutorial singkat Markdown
 
 Bisa mengikuti panduan berikut: [Markdown Guide](https://www.markdownguide.org/basic-syntax/).
 Di dalam panduan tersebut, kita bisa mencoba satu per satu sintaks yang 
-dimiliki oleh Markdown.
+dimiliki oleh Markdown. Namun kita bisa mencoba kode Markdown yang diberikan
+pada gambar di bawah ini
+
+<img src="../img-resources/markdown-example.png" width="800">
+
+Untuk bisa menampilkan kode Markdown dalam bentuk seperti yang disebelah kanan, 
+perlu di-install VSCode extension: [**Markdown Preview Github Styling**](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles).
 
 ## Tugas
 > Laporan harus ditulis dan dikumpulkan dalam bentuk berkas 
