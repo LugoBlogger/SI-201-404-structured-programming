@@ -186,5 +186,5 @@ Kode di atas setara dengan satu baris kode berikut:
 - Silahkan untuk membentuk kelompok tugas besas (*final project*) 
   minimal 4 orang, maksimal 5 orang. 
   Anggota silahkan dibentuk sendiri. Beri nama kelompok 
-  berdasarkan nama karakter anime yang kalian suka. Daftar
-  nama kelompok dikumpulkan di pertemuan praktikum berikutnya.
+  berdasarkan nama karakter anime yang kalian suka (😀). 
+  Daftar nama kelompok dikumpulkan di pertemuan praktikum berikutnya.
