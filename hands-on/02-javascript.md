@@ -132,9 +132,9 @@ jalannya program yang dia buat.
     async       continue    extends   if          of        this        while
     await       debugger    false     import      return    throw       with
     break       default     finally   in          set       true        yield
-    case        delete      for       instanceof  static    trye        catch
+    case        delete      for       instanceof  static    try         catch
     do          from        let       super       typeof    class       else
-    function    new         swithc    var
+    function    new         switch    var
   ```
 
 
