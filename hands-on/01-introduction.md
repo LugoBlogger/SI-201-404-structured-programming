@@ -173,7 +173,7 @@ pada gambar di bawah ini
 Untuk bisa menampilkan kode Markdown dalam bentuk seperti yang disebelah kanan, 
 perlu di-install VSCode extension: [**Markdown Preview Github Styling**](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles).
 
-## Tugas
+## Tugas (Exercise - 01)
 > Laporan harus ditulis dan dikumpulkan dalam bentuk berkas 
 > *markdown* atau berkas berekstensi `.md`. Apabila laporan memuat lebih 
 > dari satu berkas, misal memuat berkas gambar `.png` atau `.jpg`, maka
