@@ -262,12 +262,12 @@ dia harus seperti apa.
 Berikut tabel perbedaan antara `null` dan `undefined`
 | `null`    | `undefined`                                  |
 |-----------|----------------------------------------------|
-| tidak memiliki nilai, dan **sengaja didefinisikan**   | dideklarasikan, tapi **belum didefinisikan** |
-| jenis *type*-nya adalah `object`                      | jenis *type*-nya adalah `undefined`          |
-| perilaku aritmatik seperti `0`                        | perilaku aritmatik seperti `NaN`             |
+| tidak memiliki nilai, dan **sengaja digunakan sebagai _value_** | dideklarasikan, tapi **belum diberikan _value_** |
+| jenis *type*-nya adalah `object`                              | jenis *type*-nya adalah `undefined`          |
+| perilaku aritmatik seperti `0`                                | perilaku aritmatik seperti `NaN`             |
 
-Pendeklarasian adalah proses memberikan *type* dari suatu variable.
-Pendefinisian adalah proses memberikan *value* kepada variable.
+Pendeklarasian adalah proses memberikan *type* dari suatu variable dan bisa
+disertai pemberian *value* atau tidak.
 
 Berikut adalah pengujian tabel perbedaan di atas   
 
