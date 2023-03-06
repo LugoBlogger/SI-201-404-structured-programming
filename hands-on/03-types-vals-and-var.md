@@ -195,7 +195,7 @@ Merupakan tipe *string* yang digunakan untuk mewakili teks.
   **escape-seq.js**
   ```js
   let a = "\"She said \'hi\'\", he said.";
-  let b = "THis is first line;\nThis is second line";
+  let b = "This is first line;\nThis is second line";
 
   console.log(a);
   console.log(b);
@@ -329,7 +329,7 @@ console.log(a === b);
   **autoconversion-type-.js**
   ```js
   console.log(10 + " apples");    // => "10 appels": Bilangan 10 dikonversi menjadi suatu string
-  console.log("7" * "4");         // => 29: kedua string dikonversi ke bilangan
+  console.log("7" * "4");         // => 28: kedua string dikonversi ke bilangan
   
   let n = 1 - "x";                // n === NaN; string "x" tidak dapat dikonversi ke bilangan
   console.log(n + "thing(s)");    // => "NaN thing(s)": NaN dikonversi ke string "NaN".
