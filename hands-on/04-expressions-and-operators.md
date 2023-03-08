@@ -202,7 +202,7 @@ nilai Boolean `true` atau `false`
   ```js
   // Jalankan program berikut di browser console atau node.js mode interaktif
   11 < 3;         // => false; perbandingan numerik 
-  "11" < "3";     // =Carilah topik final project yang akan kalian kerjakan. Paling lambat sebelum UTS sudah mendapat ide untuk mengerjakan apa. Topik atau proyek yang akan kalian kerjakan usahakan sesuai kemampuan kalian. Jika memungkinkan waktu, tenaga, dan human resources, maka silahkan untuk membuat proyek yang lebih sulit. Pastikan proyek yang akan kalian kerjakan dapat diselesaikan sebelum minggu ke-16. Ide proyek boleh lebih dari satu. Tautan Google Sheet akan dibagikan untuk diisi. Boleh didiskusikan dengan assiten atau dosen pengampu mata kuliah.> true; perbandingan string 
+  "11" < "3";     // => true; perbandingan string 
   "11" < 3;       // => false; perbandingan numerik; "11" -> 11
   "one" < 3;      // => false; perbandingan numerik; "one" -> NaN
   ```
@@ -219,7 +219,7 @@ nilai Boolean `true` atau `false`
   console.log("x" in point);
   console.log("z" in point)
 
-  let data = [7, 8, 9];
+  let data = [7, 8, 9];       // Mendefinisikan array
   console.log("0" in data);
   console.log(1 in data);
   console.log(3 in data);
