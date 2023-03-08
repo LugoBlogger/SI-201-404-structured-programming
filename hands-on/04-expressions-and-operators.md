@@ -125,7 +125,7 @@ Dua tambahan lagi adalah pemangkatan `**` dan perhitungan nilai sisa
   ```js
   let x = 1, y = 2, z = 3;
   let w1 = x - y - z;
-  let w2 = ((x-y) - y);
+  let w2 = ((x - y) - z);
   console.log(w1, w2)
   ```
 
@@ -295,8 +295,7 @@ Ada beberapa operator-operator yang lain yang perlu kita ketahui.
 
   **conditional-op.js**
   ```js
-  let username = "Anastashia";
-  let username = ""
+  let username = "Anastashia";    // change to empty string to se the effect
 
   let greeting1 = "hello " + (username ? username : "there");
 
@@ -345,10 +344,11 @@ Ada beberapa operator-operator yang lain yang perlu kita ketahui.
   delete o.x;
   console.log("x" in o);
   
-  let a = {1, 2, 3};
+  let a = [1, 2, 3];
   delete a[2];
   console.log(2 in a);
-  console.log(a.length);
+  console.log(a.length);   // Penghapusan elemen tidak serta merta mengurangi
+                           // Ukuran arrat
   ```
 
   Kita akan mempelajari lebih lanjut terkait objek dan array di pertemuan 
