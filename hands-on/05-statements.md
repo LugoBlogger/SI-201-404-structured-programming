@@ -254,27 +254,173 @@ macam perulangan yang disediakan oleh JavaScript.
   ```
 
 ## *Jumps*
+*Control structure* ini merupakan statement yang mampu melakukan lompatan 
+menuju baris-baris kode secara spesifik. Ada banyak cara untuk melakukan lompatan
+dan setiap cara tersebut berguna untuk kasus-kasus tertentu
 
 - Labeled statements
+  Setiap *statement* dapat diberi label sehingga dapat kita jadikan acuan lompatan. Sebagai contoh adalah program berikut:
+
+  **labelled-statements-demo.js**
+  ```js
+  // We break after i === 1 and j === 1, 
+  // but i continue to proceed for different i
+  outerloop:
+  for (let i = 0; i < 3; i++) {
+    innerloop:
+    for (let j = 0; j < 3; j++) {
+      console.log(`i = ${i}, j = ${j}`);
+      if (i === 1 && j == 1) {
+        break innerloop;
+      }
+    }
+  }
+
+  console.log()
+
+  // We break after i == 1 and j === 1 and also stop the outerloop
+  outerloop:
+  for (let i = 0; i < 3; i++) {
+    innerloop:
+    for (let j = 0; j < 3; j++) {
+      console.log(`i = ${i}, j = ${j}`);
+      if (i === 1 && j == 1) {
+        break outerloop;
+      }
+    }
+  }
+  ```
 
 - `break`
+  *statement* `break` digunakan untuk menghentikan perulangan atau poses
+  percabangan seperti di *statement* `switch`. Beberapa contoh sudah diberikan
+  pada bagian sebelumnya.
 
 - `continue`
+  *statement* ini merupakan *statement* yang mirip dengan `break` namun
+  kegunaannya berlawan. `continue` dipakai untuk melanjutkan perulangan.
+  Umumnya digunakan untuk melakukan pengabaian (*skip*) satu atau lebih 
+  perulangan.
 
-- `return`
+  Dapat juga digunakan untuk mengabaikan elemen suatu array yang tidak
+  terdefinisi, sehingga berguna untuk menghindari error ketika membaca
+  suatu data array
 
-- `yield`
+  **example-continue.js**
+  ```js
+  let data = [1, 2, 3, undefined, 4, 5];
+  let total = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (!data[i]) {
+      continue;         // tidak memproses `undefined` elemen
+    }
+    total += data[i];
+  }
 
-- `throw`
+  console.log(`total = ${total}`);
+  ```
 
-- `try/catch/finally`
+- `return`   
+  *Statement jump* ini digunakan untuk mengakhiri suatu fungsi
+  dan menyatakan apa yang ingin kita keluarkan sebagai hasil dari fungsi tersebut.
+  Secara lebih lengkap akan kita bahas di pertemuan tentang fungsi.
+
+- `yield`  
+  *Statement jump* ini digunakan sebagai versi `return` *statement*
+  untuk objek iterator dan generator. Dipilih digunakan `yield` dengan
+  alasan efisiensi eksekusi suatu fungsi hanya akan dieksekusi 
+  ketika elemennya dipanggil. Pada kuliah ini kita tidak sampai mebahas
+  objek iterator dan generator.
+
+- `throw`    
+  `throw` digunakan untuk memberikan petunjuk secara eksplisit
+  bahwa di baris `throw` *statement* dipanggil, terjadi suatu 
+  hal yang tidak diinginkan (biasanya disebut *exception*).
+   Umumnya perintah `throw` digunakan 
+  secara bersamaan dengan `try/catch/finally` *statements". Contoh akan
+  diberikan pada bagian berikutnya. 
+
+- `try/catch/finally`   
+  Merupakan mekanisme untuk menangkap *exception* yang terjadi selama program
+  dieksekusi (dijalankan)
+
+  Bagian `try` (atau disebut klausa `try`) merupakan
+  bagian tempat indikasi  berlangsungnya *exception*.
+
+  Klausa `catch` digunakan untuk menjalankan *statement* lain
+  saat *exception* terjadi di klausa `try`.
+
+  Terakhir klausa `finally` merupakan opsional blok (bisa dipakai
+  bisa tidak) yang akan tetap dijalankan apapun kondisi *exception*
+  dari klausa `try`.
+
+  Berikut contoh yang cukup sederhana dari *exception handling mechanism*
+  menggunakan `try/catch/finally` *statements*.
+
+  **try-catch-finally.js**
+  ```js
+  // In the textbook, they use alert() and prompt() which are the functions
+  // that are available in browser not in Node.
+  const prompt_sync = require('prompt-sync')();
+
+  function factorial(x) {
+    // If the input argument is invalid, throw an exception!
+    if (x < 0) throw new Error("x must not be negative");
+
+    // Otherwise, compute a value and return normally
+    let f;
+    for (f = 1; x > 1; f *= x, x--) /* empty */;
+    return f;
+  }
+
+  try {
+    // Ask the user to enter a number
+    let n = Number(prompt_sync("Please enter a positive integer: "));
+
+    // Compute the factorial of the number, assuming the input is valid
+    let f = factorial(n);
+
+    // Display the result
+    console.log(n + "! = " + f);
+  } catch(ex) {   // If the user's input was not valid, we end up here
+    console.log(ex.name + ": " + ex.message); // Tell the user what the error is
+  }
+  ```
+
+  Program di atas dijalankan dengan memberi kemungkinan input bilangan bulat
+  positif atau negatif. Bilangan bulat negatif akan memberikan *exception*.
+
 
 
 ## Miscellaneous Statements
 
-- `with`
+- `"use strict"`    
+  Merupakan *statement* yang secara khusus mengubah mode dari JavaScript
+  ke *strict mode*. *Strict mode* merupakan mode yang mana beberapa
+  statement bawaan JavaScript dapat digunakan atau tidak.
+  Mereka tidak dapat digunakan karena adanya defisiensi (kode tidak efisien).
+  *Strict mode* juga menjamin adanya pengecekan error lebih agresif sehingga
+  program JavaScript yang kita buat akan mengalami peningkatan dalam 
+  hal keamanan program tersebut (mengurangi resiko di-*hack*).
 
-- `"use strict"`
+  Berikut contoh perbedaan menggunakan `"use strict"` dan tidak. 
+
+  **non-strict-mode.js**
+  ```js
+  // Non-strict mode
+  let x = 10;
+  delete x;
+  console.log(x);   // => undefined
+  ```
+
+  **use-strict-mode.js**
+  ```js
+  // Strict mode
+  "use strict";
+  let x = 10;
+  delete x;         // => SyntaxError (we cannot perform delete)
+  console.log(x);   
+  ```
 
 
 ## Tugas (Exercise - 03)
@@ -296,8 +442,8 @@ macam perulangan yang disediakan oleh JavaScript.
 1. (**10 poin**) Ceritakan dalam 200 kata tentang hal yang telah kalian 
    pelajari di sesi praktikum ini.
 
-2. (**90 poin**) Dari contoh di bagian perulangan, buatlah program untuk 
-   mencetak gambar kartu berikut:
+2. (**90 poin**) Dari contoh di bagian perulangan, buatlah program JavaScript
+   untuk mencetak gambar kartu berikut:
    
    - Kartu wajik dengan ukuran 1
    ```
@@ -339,8 +485,11 @@ macam perulangan yang disediakan oleh JavaScript.
    #---------#
    ```
 
-   Petunjuk: Gunakan *package* `prompt-sync` sehingga *user* dapat memberikan input 
-   ukuran kartu yang ingin ia tampilkan (batasi sampai ukuran 6).
+   Petunjuk: 
+   - Gunakan *package* `prompt-sync` sehingga *user* dapat memberikan input 
+     ukuran kartu yang ingin ia tampilkan (batasi sampai ukuran 6).
+   - Program tidak perlu terlalu rumit, cukup menggunakan pemahaman yang telah
+     kalian dapatkan selama minggu ke-01 hingga minggu ke-05.
 
 
 
