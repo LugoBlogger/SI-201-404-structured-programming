@@ -487,7 +487,7 @@ dan setiap cara tersebut berguna untuk kasus-kasus tertentu
 
    Petunjuk: 
    - Gunakan *package* `prompt-sync` sehingga *user* dapat memberikan input 
-     ukuran kartu yang ingin ia tampilkan (batasi sampai ukuran 6).
+     ukuran kartu yang ingin ditampilkan (batasi sampai ukuran 6).
    - Program tidak perlu terlalu rumit, cukup menggunakan pemahaman yang telah
      kalian dapatkan selama minggu ke-01 hingga minggu ke-05.
 
