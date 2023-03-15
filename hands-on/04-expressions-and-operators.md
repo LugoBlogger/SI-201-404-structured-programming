@@ -269,7 +269,7 @@ console.log(i, j, k, l);
 Kita juga dapat melakukan pengabungan *assignment operator* dengan 
 *strict equality operator*
 
-**compound-assign-op.js*
+**compound-assign-op.js**
 ```js
 let a = 1;
 let b = 2;
@@ -283,7 +283,7 @@ untuk menghemat penulisan
 - `a -= b` setara dengan `a = a - b`;
 - `a *= b` setara dengan `a = a * b`;
 - `a /= b` setara dengan `a = a / b`;
-- `a **= b` setara dengan `a = a ** b;
+- `a **= b` setara dengan `a = a ** b`;
 - `a %= ` setara dengan `a = a % b`;
 
 ## Operator-operator yang lain
