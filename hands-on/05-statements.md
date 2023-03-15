@@ -104,7 +104,7 @@ console.log(a);
 
 ## Pengkondisian (*conditional*)
 
-- `if` and `if-else`
+- `if` and `if-else`   
   Merupakan *control structure* untuk mengendalikan statement sehingga
   program JavaScript dapat melakukan pemilihan keputusan (*decision*).
 
@@ -125,7 +125,7 @@ console.log(a);
   }
   ```
 
-- `else if`
+- `else if`   
   Jika kondisi yang tidak terpenuhi (*false* condition) 
   masih memiliki kondisi yang harus dipenuhi
   maka kita bisa menggunakan `else if` untuk menggambarkan kondisi tersebut.
@@ -146,7 +146,7 @@ console.log(a);
   }
   ```
 
-- `switch`
+- `switch`   
   *Control structure* ini mirip seperti `if - else if - else if - else ...`
   namun lebih ringkas dan berlaku untuk pengujian kondisi yang bernilai
   string atau integer. Untuk pengujian kondisi yang lebih umum bisa tetap
@@ -190,7 +190,7 @@ macam perulangan yang disediakan oleh JavaScript.
   }
   ```
 
-- `do/while`
+- `do/while`  
   Sama seperti halnya *control structure* `while`, namun *statements* akan 
   dijalan minimal sekali baru setalah itu dilakukan pengujian apakah 
   kondisi perulangan terpenuhi atau tidak
@@ -258,7 +258,7 @@ macam perulangan yang disediakan oleh JavaScript.
 menuju baris-baris kode secara spesifik. Ada banyak cara untuk melakukan lompatan
 dan setiap cara tersebut berguna untuk kasus-kasus tertentu
 
-- Labeled statements
+- Labeled statements   
   Setiap *statement* dapat diberi label sehingga dapat kita jadikan acuan lompatan. Sebagai contoh adalah program berikut:
 
   **labelled-statements-demo.js**
@@ -291,12 +291,12 @@ dan setiap cara tersebut berguna untuk kasus-kasus tertentu
   }
   ```
 
-- `break`
+- `break`   
   *statement* `break` digunakan untuk menghentikan perulangan atau poses
   percabangan seperti di *statement* `switch`. Beberapa contoh sudah diberikan
   pada bagian sebelumnya.
 
-- `continue`
+- `continue`   
   *statement* ini merupakan *statement* yang mirip dengan `break` namun
   kegunaannya berlawan. `continue` dipakai untuk melanjutkan perulangan.
   Umumnya digunakan untuk melakukan pengabaian (*skip*) satu atau lebih 
@@ -333,7 +333,7 @@ dan setiap cara tersebut berguna untuk kasus-kasus tertentu
   objek iterator dan generator.
 
 - `throw`    
-  `throw` digunakan untuk memberikan petunjuk secara eksplisit
+  *Statement jump* ini digunakan untuk memberikan petunjuk secara eksplisit
   bahwa di baris `throw` *statement* dipanggil, terjadi suatu 
   hal yang tidak diinginkan (biasanya disebut *exception*).
    Umumnya perintah `throw` digunakan 
