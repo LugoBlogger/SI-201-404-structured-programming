@@ -449,7 +449,7 @@ console.log(a === b);
 > **PASTIKAN** berkas `md` sudah dilakukan *preview*, sehingga kode *markdown*
 > bisa di-*preview* dengan benar.  
 > Format penamaan file: `NIM_NAMA.md` atau `NIM_NAMA.zip` (boleh nama
-> lengkap atau nama panggilan.
+> lengkap atau nama panggilan).
 > 
 > **Contoh format laporan atau jawaban (`NIM_NAMA.md`)**    
 > Nama: [NAMA LENGKAP]   
