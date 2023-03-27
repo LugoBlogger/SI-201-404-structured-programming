@@ -302,10 +302,6 @@ Proses untuk mengubah menjadi string panjang menggunakan `JSON.stringify()`
 dan untuk membacanya kembali menjadi nilai suatu object menggunakan
 `JSON.parse()` ke dalam program.
 
-Proses untuk mengubah menjadi string panjang menggunakan `JSON.stringify()`
-dan untuk membacanya kembali menjadi nilai suatu object menggunakan
-`JSON.parse()`.
-
 **serializing-object.js**
 ```js
 let o = {
