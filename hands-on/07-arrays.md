@@ -221,7 +221,7 @@ Untuk mengetahui ukuran suatu *array* dapat digunakan perintah `.length`;
 Melakukan setting ke property `.length` akan memodifikasi ukuran array
 (array akan terpotong atau diperpanjang).
 
-*arr-length.js**
+**arr-length.js**
 ```js
 console.log([].length);     // => 0; array [] tidak memiliki element
 
@@ -364,37 +364,367 @@ terdapat di dalam *array*:
 
 ### Array iterator methods
 
-- `forEach()
-- `map()`
-- `filter()`
-` `find()` dan `findIndex()`
-- `every()` dan `some()`
-- `reduce()` dan `reduceRight()`
+- `forEach()`    
+  Melakukan iterasi tanpa *control structures" `for` loop. Teknik ini banyak
+  digunakan dalam paradigma pemrograman fungsional (di bahas lebih
+  lanjut di perkuliahan *web pemrograman* tingkat lanjut).
+  Beberapa contoh berikut banyak menggunakan input berupa *arrow function*
+  yang akan kita bahas di pertemuan berikutnya tentang fungsi.
 
+  **for-each-demo.js**    
+  ```js
+  let data = ['a', 'b', 'c', 'd', 'e'];
+  let concat = '';       // untuk menyimpan hasil concatenation 
+
+  // Argument dari .foreach merupakan suatu fungsi
+  // Fungsi akan kita bahas di pertemuan praktikum berikutnya
+  data.forEach(value => { concat += value; });
+  console.log(concat);
+  ```
+
+- `map()`    
+  Merupakan *method* yang ringkas untuk mengaplikasikan fungsi ke
+  setiap *element* di dalam *array*, tanpa *control structure* `for` loop.
+
+  **map-demo.js**
+  ```js
+  let data = ['a', 'b', 'c', 'd', 'e'];
+  let result = data.map(x => {`item${x.toUpperCase()}`;});
+  console.log(result);
+  ```
+
+- `filter()`    
+  Digunakan untuk menyeleksi menggunakan nilai Boolean, *elements* 
+  yang akan di ambil dari suatu *array*
+  
+  **filter-demo.js**
+  ```js
+  let data = ['a', 'b', 'c', 'd', 'e'];
+  let result = data.filter(x => {x >= 'a' && x <= 'c';});
+  console.log(result);
+  ```
+
+- `find()` dan `findIndex()`    
+  Digunakan untuk untuk mencari *element* di suatu *array*.
+  `find()` akan menghasilkan semua *elements* yang ditemukan.
+  Sedangkan `findIndex()` akan memberikan posisi dari 
+  semua *element** yang ditemukan
+
+  **find-and-find-index-demo.js**
+  ```js
+  let data = ['a', 'b', 'c', 'd', 'e'];
+  let result;
+  
+  result = data.find(x => {x >= 'a' && x <= 'c';});
+  console.log(result);
+
+
+  result = data.findIndex(x => {x >= 'a' && x <= 'c';});
+  console.log(result);
+  ```
+
+- `every()` dan `some()`    
+  Digunakan untuk memeriksa apakah semua *elements* di dalam suatu *array*
+  telah memenuhi kondisi Boolean yang diberikan.
+
+  **every-and-some-demo.js**
+  ```js
+  let data = ['a', 'b', 'c', 'd', 'e'];
+  let result;
+
+  result = data.every(x => {x >= 'a' && x <= 'c';});
+  console.log(result);
+
+  result = data.some(x => {x => 'a' && x <= 'c';});
+  console.log(result);
+  ```
+
+- `reduce()` dan `reduceRight()`      
+  Digunakan untuk mereduksi *elements* di suatu *array* menjadi satu
+  nilai tunggal. Maksud mereduksi disini adalah kita dapat mendefinisikan
+  bagaimana dua *elements* di dalam *array* berinteraksi 
+  (dioperasikan/digabungkan/dikombninasikan).  Untuk `reduceRight()`
+  adalah variasi dari `reduce()` namun operasi reduksi dimulai 
+  dari dua pasangan terakhir *element* paling kanan.
+
+  **reduce-and-reduce-right-demo.js**  
+  ```js
+  let data = ['a', 'b', 'c', 'd', 'e'];
+  let result;
+
+  result = data.reduce((x, y) => x + '+' + y);
+  console.log(result);
+
+  result = data.reduceRight((x, y) => x + '+' + y);
+  console.log(result);
+  ```
 
 ### Methods for creating stacks and queues
 Pada bagian ini ada 4 *methods* yaitu: 
-- `push()`: digunakan untuk menambahkan suatu element di ujung kanan *array*
-  (di *index* = ukuran *array*)
-- `pop()`:
-- `shift()`:
-- `unshift()`:
+- `push()`: digunakan untuk menambahkan satu atau lebih *element*
+   di ujung kanan *array* (di *index* terakhir)
+- `pop()`: digunakan untuk menghapus satu *element* di ujung kanan *array*
+   (di *index* terakhir)
+- `unshift()`: digunakan untuk menambahkan satu atau lebih *element*
+   di ujung kiri *array* (di *index* pertama*);
+- `shift()`: digunakan untuk menghapus satu *element* di ujung kiri
+  *array* (di *index* pertama);
+
+**stack-end-and-start-demo.js**
+```js
+let data = ['a', 'b', 'c', 'd', 'e'];
+
+stack_end = Array.from(data);     // menggandakan array `data`
+stack_end.push('f', 'g'); console.log(stack_end);
+
+// Menghapus satu per satu element terakhir
+stack_end.pop(); console.log(stack_end); 
+stack_end.pop(); console.log(stack_end);
+stack_end.pop(); console.log(stack_end);
+
+
+console.log();  // untuk memberi spasi dari print out sebelumnya
+stack_start = Array.from(data);     // menggandakan array `data`
+stack_start.unshift(7, 8, 9); console.log(stack_start);
+
+// Menghapus satu per satu element pertama
+stack_start.shift(); console.log(stack_start);
+stack_start.shift(); console.log(stack_start);
+stack_start.shift(); console.log(stack_start);
+
+```
 
 ### Methods on subarrays
-- `slice()`
-- `splice()`
-- `fill()`
-- `copyWithin()`
+- `slice()`   
+  Digunakan untuk merndapatkan *subarray* dari suatu *array*.
+
+  **slice-demo.js**   
+  ```js
+  let data = ['a', 'b', 'c', 'd', 'e'];
+  let result;
+
+  // Lakukan pengambilan subarray dari index 0 hingga index 3 - 1;
+  result = data.slice(0, 3);
+  console.log(result);
+
+  // Lakukan pengambilan subarray dari index 3
+  result = data.slice(3);
+  console.log(result);
+
+  // Lakukan pengambilan subarray dari index 1, hingga index terakhir (-1)
+  result = data.slice(1, -1);
+  console.log(result);
+
+  // Lakukan pengambilan subarray dari index -3 (tiga terakhir dari kanan)
+  // hingga index -2 (dua terakhir dari kanan)
+  result = data.slice(-3, -2);
+  console.log(result);
+  ```
+  
+- `splice()`   
+  Merupakan *array method* yang memiliki kegunaa beragam, seperti yang 
+  telah disinggung di paragraf sebelumnya
+
+  **splice-demo.js**
+  ```js
+  let data, result; 
+  
+  // Melakukan pemotongan array di indeks 4
+  data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+  result = data.splice(4); 
+  console.log(result);
+  console.log(data);
+  console.log();
+
+  // Melakukan pemotongan array di indeks 1 hingga indeks 2
+  data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+  result = data.splice(1, 2);  
+  console.log(result);
+  console.log(data);
+  console.log();
+
+  // Melakukan pemotongan array di indeks 1 hingga indeks 1
+  data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+  result = data.splice(1, 1); 
+  console.log(result);
+  console.log(data);
+  console.log();
+  
+  // Melakukan penghapusan dimulai dari index 2 sebanyak 0 element
+  // kemudian disisipkan dua elements `fill01` dan `fill02`
+  data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+  result = data.splice(2, 0, 'fill01', 'fill02');
+  console.log(result);
+  console.log(data);
+  console.log();
+
+  // Melakukan penghapusan dimulai dari index 2 sebannyak 2 elements
+  // kemudian disisipkan dua elements [1, 2] dan 5
+  data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+  result = data.splice(2, 2, [1, 2], 5);
+  console.log(result);
+  console.log(data);
+  ```
+
+- `fill()`    
+  Digunakan untuk pengisian *elements* pada *array*.
+
+  **fill-demo.js**
+  ```js
+  let data;
+
+  // Mengisi semua element dengan angka 0
+  data = ['a', 'b', 'c', 'd', 'e'];
+  data.fill(0);
+  console.log(data);
+
+  // Mengisi array dengan angka 9 dimulai dari indeks 1 hingga akhir
+  data = ['a', 'b', 'c', 'd', 'e'];
+  data.fill(9, 1);
+  console.log(data);
+
+  // Mengisi array dengan angka 8 dimulai dari indeks 2 hingga indeks
+  // terakhir dikurangi 1 (indeks terakhir kedua) 
+  data = ['a', 'b', 'c', 'd', 'e'];
+  data.fill(8, 2, -1);
+  console.log(data);
+  ```
+
+- `copyWithin()`   
+  Digunakan untuk menggandakan *subarray* di dalam *array* tersebut
+  ke posisi yang baru.
+
+  **copyWithin()**
+  ```js
+  let data;
+
+  // Menggandakan array data ditempatkan mulai dari indeks 1.
+  // Element pada posisi indeks 1 hingga akhir akan di-overwrite.
+  data = ['a', 'b', 'c', 'd', 'e'];
+  data.copyWithin(1);
+  console.log(data);
+
+  // Menggandakan array data ditempatkan mulai dari indeks 2
+  // dari array data yang dimulai dari indeks 3 hingga element ke 5 
+  // (indeks ke = 5-1 = 4) =  ['d', 'e']
+  // Element pada indeks 3 dan 4 akan di-overwrite dengan ['d','e']
+  data = ['a', 'b', 'c', 'd', 'e'];
+  data.copyWithin(2, 3, 5);
+  console.log(data);
+
+  // Menggandakan array data ditempatkan mulai dari indeks 0
+  // dari array data terakhir kedua (indeks -2) hingga element terakhir
+  // = ['d', 'e']
+  // Element pada indeks 1 dan 2 akan di-overwrite dengan ['d', 'e']
+  data = ['a', 'b', 'c', 'd', 'e'];
+  data.copyWithin(0, -2);
+  console.log(data);
+  ```
 
 ### Array searching and sorting methods
-- `indexOf()` dan `lastIndexOf()`
-- `includes()`
-- `sort()`
-- `reverse()`
+- `indexOf()` dan `lastIndexOf()`    
+  Berbeda dengan *methods* sebelumnya (`find()` dan `findIndex()`),
+  *methods* ini hanya akan memberikan *element index* yang pertama
+  kali ditemukan. Serta argument yang digunakan berupa nilai *element*.
+  Untuk `lastIndexOf()` pencarian dimulai dari 
+  *index* terakhir.
+
+  **index-of-and-last-index-of.js**
+  ```js
+  let data = ['a', 'b', 'c', 'b', 'c'];
+  let result
+
+  // Memberikan index untuk element 'c' yang pertama kali 
+  // ditemukan
+  result = data.indexOf('c'); console.log(result);
+
+  // Melakukan pencarian dari element terakhir dan 
+  // menghasilkan index untuk element 'b' yang pertama kali 
+  // ditemukan
+  result = data.lastIndexOf('b'); console.log(result);
+
+
+  // Melakukan pencarian untuk element yang tidak ada di 
+  // dalam array akan menghasilkan nilai -1
+  result = data.indexOf('f'); console.log(result);
+  ```
+
+- `includes()`    
+  Digunakan untuk memeriksa apakah suatu *element* terdapat
+  dalam suatu *array*   
+
+  **includes-demo.js**
+  ```js
+  let data = ['a', 'b', 'c', 'd', 'e'];
+  let result;
+
+  result = data.includes('c'); console.log(result);
+
+  result = data.includes(2); console.log(result);
+  ```
+
+- `sort()`   
+  Digunakan untuk mengurutkan *elements* pada suatu *array*
+  berdasarkan **alphabetical order**. Jadi perlu hati-hati
+  menggunakan *methods* ini. Untuk mengurutkan angka
+  maka perlu mendefinisikan fungsi *sorting* tersendiri.
+
+  **sort-demo.js**
+  ```js
+  let arr = ['banana', 'cherry', 'apple'];
+  arr.sort(); console.log(arr);
+
+  let numericArr;
+
+  // Secara default .sort mengurutkan angka berdasarkan alphabet
+  // Semua angka akan diubah ke dalam string
+  numericArr = [33, 4, 1111, 222];
+  numericArr.sort(); 
+  console.log(numericArr);
+
+  // Mengurutkan angka berdasarkan nilainya make perlu mendefinisikan
+  // ulang fungsi sorting
+  numericArr = [33, 4, 1111, 222];
+  numericArr.sort((x, y) => { return x - y; });
+  console.log(numericArr)
+  ```
+
+- `reverse()`    
+  Digunakan untuk membalik urutan *element* yang ada dalam suatu *array*
+
+  **reverse-demo.js**
+  ```js
+  let data = ['a', 'b', 'c', 'd', 'e'];
+  data.reverse();
+  console.log(data);
+  ```
 
 ## Object yang memiliki sifat seperti array
 Kita dapat membentuk suatu object menjadi suatu array. Sehingga
 dapat dilakukan iterasi layaknya iterasi pada array.
+
+Berikut adalah contoh penggunaan *object* yang dapat dipandang sebagai
+suatu *array* sehingga dapat dilakukan proses *looping*
+
+**array-like-obj.js**
+```js
+let arrLikeObj = {};     // Mendeklarasikan object tanpa properties
+const objLength = 10;
+
+// Menambahkan property ke `arrLikeObj`
+for (let i = 0; i < objLength; i++) {
+  arrLikeObj[i] = `item${(i+1).toString().padStart(2, '0')}`;
+}
+console.log(arrLikeObj);
+arrLikeObj.length = objLength;
+
+
+
+// Sekarang kita mencoba untuk melakukan iterasi ke `arrLikeObj`
+for (let i = 0; i < arrLikeObj.length;i++) {
+  console.log(arrLikeObj[i]);
+}
+```
 
 
 ## Melihat *string* sebagai *array*
@@ -432,7 +762,7 @@ console.log(strExample[5]);         // => l
 
 
 2. [70 poin] Dalam bidang *business analytics* dikenal suatu indikator
-   bernama ROI (Return of Investment).
+   bernama ROI (Return on Investment).
    Rumus sederhana untuk menghitung ROI selama setahun diberikan oleh:
    $$
       ROI = \frac{\textrm{hasil investasi} - \textrm{besar investasi}}{
