@@ -469,11 +469,11 @@ di dokumentasi terkait object di
 > 1. (Jawaban nomor 1)
 > 2. (Jawaban nomor 2)
 
-1. [30 poin] Tuliksan pengalaman kalian selama seminggu eksplorasi terkait *object* type ini. Ceritakan dengan bahasa yang kalian pahami.
+1. [30 poin] Tuliskan pengalaman kalian selama seminggu eksplorasi terkait *object* type ini. Ceritakan dengan bahasa yang kalian pahami.
 
 
 2. [70 poin]     
-   1. Buatu suatu object kosong (tanpa property apapun)
+   1. Buat suatu object kosong (tanpa property apapun)
       dengan nama `Person1`.  
    2. Cetak object `Person1` tersebut di console
    3. Tambahkan properties berikut:
@@ -492,5 +492,5 @@ di dokumentasi terkait object di
         skill: "game developer, procedural animation"
        ```
    6. Tukarkan data-data `Person1` ke `Person2` demikian pula sebaliknya.   
-       *Petunjuk*: Gunakan *destructuring asssignment*.
+       *Petunjuk*: Gunakan *destructuring assignment*.
    7. Cetak object `Person1` dan `Person2` ke console.

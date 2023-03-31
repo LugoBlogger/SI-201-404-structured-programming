@@ -764,10 +764,8 @@ console.log(strExample[5]);         // => l
 2. [70 poin] Dalam bidang *business analytics* dikenal suatu indikator
    bernama ROI (Return on Investment).
    Rumus sederhana untuk menghitung ROI selama setahun diberikan oleh:
-   $$
-      ROI = \frac{\textrm{hasil investasi} - \textrm{besar investasi}}{
-        \textrm{besar investasi}} \times 100\%
-   $$
+   $$ ROI = \frac{\textrm{hasil investasi} - \textrm{besar investasi}}{
+        \textrm{besar investasi}} \times 100\% $$
 
    Diberikan tabel besar investai dan hasil investasi selama setahun
    untuk 5 buah saham, carilah saham manakah yang paling menguntungkan
