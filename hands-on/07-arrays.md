@@ -769,7 +769,7 @@ console.log(strExample[5]);         // => l
         \textrm{besar investasi}} \times 100\%
    ``` 
 
-   Diberikan tabel besar investai dan hasil investasi selama setahun
+   Diberikan tabel besar investasi dan hasil investasi selama setahun
    untuk 5 buah saham, carilah saham manakah yang paling menguntungkan
    untuk dilakukan investasi.
 
