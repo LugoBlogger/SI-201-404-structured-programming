@@ -44,19 +44,164 @@ Beberapa hal yang akan kita pelajari di sesi ini adalah:
 
 ## Istilah-istilah dasar dalam fungsi
 
+- *Invoked*: merupakan peristiwa saat kita memanggil fungsi yang telah 
+   didefinisikan
+
+- *parameterized*: keadaan suatu variable input atau 
+  variabel yang dimuat oleh suatu 
+  fungsi bersifat lokal (telah terparameterisasi)
+
+- *parameter*: variable input yang dimiliki oleh fungsi yang 
+  berfungsi sebagai penanda (*identifier*) 
+
+- *argument*: merupakan nilai yang akan diinputkan ke dalam fungsi
+  atau nilai yang diberikan ke variabel input. Proses pemberian 
+  *argument* terjadi saat fungsi dipanggil (*function invocation*)
+
+- *method*: fungsi yang secara khusus didefinisikan sebagai
+  *property* suatu *object*
+
+- *constructor*: fungsi yang secara khusus didefinisikan untuk 
+  melakukan pendeklarasian suatu *object*.
+
+- *closure*: merupakan sifat dari fungsi di JavaScript yang mana
+  suatu definisi fungsi dapat disisipkan dalam suatu fungsi lain
+  dan fungsi yang didefinisikan tersebut dapat mengakses variable
+  di fungsi yang disisipi.
+
 ## Function declaration
-- menggunakan nama fungsi 
+- menggunakan kata kunci `function`    
+  
+  **func-def-with-function.js**
+  ```js
+  // Mencetak `property name` dan `property value` dari suatu object o
+  function printops(o) {
+    for (let p in o) {
+      console.log(`${p}: ${o[p]}`);
+    }
+  }
 
-- variable yang bernilai suatu fungsi
 
-- *arrow function*
+  // Melakukan penghitungan jarak antara dua titik (x1, y1) dan (x2, y2)
+  function distance(x1, y1, x2, y2) {
+    let dx = x2 - x1;
+    let dy = y2 - y1;
+    return Math.sqrt(dx*dx + dy*dy);
+  }
+
+  // FUngsi rekursif yang memanggil dirisnya sendiri dan digunakan untuk 
+  // menghitung faktorial
+  function factorial(x) {
+    if (x <= 1) return 1;
+    return x * factorial(x-1);
+  }
+
+  let o = {"apple": 5000, "mango": 7000, "pineapple": 15000};
+  printops(o);
+
+  console.log();
+  let dist = distance(0, 0, 5, 12);  // => 13 = sqrt(5^2 + 12^2)
+  console.log("dist: ", dist);
+
+
+  console.log();
+  console.log("factorial(5): ", factorial(5));   // => 120 = 5 x 4 x 3 x 2 x 1
+  ```
+
+- variable yang bernilai suatu *function expression*  
+
+  **func-def-with-func-expression.js**
+  ```js
+  // Function expression berikut mendefinisikan nilai kuadrat dari argument
+  // yang diberikan kepada fungsi tersebut
+  const square = function(x) { return x*x; };
+  console.log(square(5));
+
+  // Function expression dapat memuat nama yang dapt digunakan
+  // untuk mendefinisikan fungsi rekursif
+  const f = function fact(x) { if  (x <= 1) return 1; else return x*fact(x-1); };
+  console.log(f(5));
+
+
+  // Function expression dapat digunakan sebagai suatu argumen untuk fungsi
+  // yang lain
+  let result = [3, 2, 1].sort(function(a, b) { return a - b; });
+  console.log(result);
+
+  // Function expression dapat juga didefinisikan dan langsung di panggil
+  // dengan nilai argument
+  let tensquared = (function(x) { return x*x; }(10));
+  console.log(tensquared);
+  ```
+
+- Jalan pintas (*shortcut*) untuk mendefinisikan fungsi: *arrow function*  
+
+  **func-def-with-arrow-func.js**
+  ```js
+  let result;
+
+  // Mendefinisikan fungsi jumlahan dua buat variabel x dan y menggunakan arrow
+  // function ( () => {} )
+  const sum = (x, y) => { return x + y; };
+  result = sum(25, 75);
+  console.log(result);
+
+  // Tanpa kurung kurawal dan kata kunci `return`
+  const sumShort = (x, y) => x + y;
+  result = sumShort(25, 75);
+  console.log(result);
+
+  // Untuk arrow function dengan satu parameter tidak perlu menggunakan kurung
+  const polynomial = x => x*x + 2*x + 3;
+  result = polynomial(1);
+  console.log(result);
+
+
+  // Untuk arrow function tanpa argumen dapat menggunakan kurung saja
+  const greeting = () => "Hi!";
+  result = greeting();
+  console.log(result);
+
+  // -- Penggunaan arrow function sebagai argument suatu array method
+  // Digunakan untuk menghapus element yang bernilai null
+  let filtered = [1, null, 2, 3].filter(x => x !== null);
+  console.log(filtered);
+
+  // Digunakan untuk melakukan kuadrat setiap element array tanpa harus
+  // melakukan perulangan menggunakan array method `map()`
+  let squares = [1, 2, 3, 4].map(x => x*x);
+  console.log(squares);
+  ```
 
 - Fungsi yang memuat fungsi (*nested* function)
 
+  **func-def-with-nested-func.js**
+  ```js
+  // Fungsi berikut akan menghitung sisi miring dari suatu segitiga siku-siku
+  // dengan diberikan panjang sisi tegak dan sisi mendatar.
+  // Fungsi yang memuat definisi suatu fungsi (square). Disini fungsi square
+  // dapat memanggil variabel tempat fungsi tersebut didefinisikan, yaitu
+  // dapat mengakses variabel a dan b dari fungsi hypotenuse
+  function hypotenuse(a, b) {
+    function square(x) { return x*x; }
+    return Math.sqrt(square(a) + square(b));
+  }
+
+  let result = hypotenuse(5, 12);
+  console.log(result);
+  ```
+
+
 ## Function invocation
-- fungsi dipanggil sebagai fungsi
-- fungsi dipanggil sebagai method
-- pemanggilan fungsi secara tidak langsung
+- fungsi dipanggil sebagai fungsi   
+  Pada bagian sebelumnya kita secara tidak langsung sudah melakukan pemanggilan 
+  fungsi, yaitu menggunakan nama fungsi dan dikuti kurung buka lalu
+  daftar arguments diakhiri dengan kurung tutup.
+  
+
+- fungsi dipanggil sebagai *method*
+- fungsi yang dipanggil sebagai *constructor*
+- pemanggilan fungsi secara tidak langsung menggunakan `call()` dan `apply()`
 
 
 
