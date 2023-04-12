@@ -197,11 +197,61 @@ Beberapa hal yang akan kita pelajari di sesi ini adalah:
   Pada bagian sebelumnya kita secara tidak langsung sudah melakukan pemanggilan 
   fungsi, yaitu menggunakan nama fungsi dan dikuti kurung buka lalu
   daftar arguments diakhiri dengan kurung tutup.
-  
 
-- fungsi dipanggil sebagai *method*
-- fungsi yang dipanggil sebagai *constructor*
+
+- fungsi dipanggil sebagai *method*   
+  Suatu fungsi yang didefinisikan di dalam suatu object dapat dipanggil
+  sebagai suatu *methods*
+
+  **func-invoke-with-method.js**
+  ```js
+  // Object calculator yang dapat menyimpan input penjumlahan dan hasil 
+  // penjumlahannya
+  let calculator = {
+    operand1: 1,
+    operand2: 1,
+
+    add() {
+      this.result = this.operand1 + this.operand2
+    }
+  }
+
+  // Kita berikan input bilangan yang akan dilakukan penjumlahan
+  calculator.operand1 = 5;
+  calculator.operand2 = 7;
+
+  // Lakukan proses penjumlahan setelah memasukan inpuit
+  calculator.add();
+
+  // Tampilkan hasil penjumlahan
+  console.log(calculator.result);
+  ```
+
+
 - pemanggilan fungsi secara tidak langsung menggunakan `call()` dan `apply()`
+
+  **func-invoke-with-call-and-apply.js**
+  ```js
+  let arrayOfNumbers = [4, 2, 3, 1, 1, 2, 3, 5, 1, 3, 3];
+  let biggest;
+
+  // Pemanggilan fungsi Math.max secara langsung
+  biggest = Math.max(...arrayOfNumbers)
+  console.log(biggest);
+
+  // Kita menggunakan Math object (object bawaan dari JavaScript)
+  // yng memuat semua type bilangan. Kita terapkan fungsi Math.max
+  // ke arrayOfNumber tetapi secara tidak langsung menggunakkan .appyly
+  // Math.max akan menjadi method dari Math object dan juga arrayNumbers
+  // akan menjadi argument dari Math.max dan kita tidak perlu melakukan 
+  // unpack menggunakan spread operator 
+  biggest = Math.max.apply(Math, arrayOfNumbers)
+  console.log(biggest);
+
+  // with .call you have to use spread operator to unpack the elements
+  biggest = Math.max.call(Math, ...arrayOfNumbers);
+  console.log(biggest);
+  ```
 
 
 
