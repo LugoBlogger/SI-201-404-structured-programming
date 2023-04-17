@@ -274,7 +274,7 @@ Beberapa hal yang akan kita pelajari di sesi ini adalah:
 1. [30 poin] Sebutkan 3 kegiatan yang kalian lakukan sehari-hari yang 
    dapat diubah menjadi suatu fungsi. 
    Implementasi fungsi tersebut kedalam JavaScript. Berikan juga contoh
-   penggunaanya.
+   penggunaannya.
 
    Berikut contoh salah satu kegiatan yang mungkin.
    ```js
