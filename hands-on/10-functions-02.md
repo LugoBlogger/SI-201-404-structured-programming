@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 09 - *Functions* bagian 1
+# Modul praktikum - Minggu 10 - *Functions* bagian 2
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Feriyanto - (10191031)**
