@@ -86,7 +86,7 @@ suatu fungsi.
   sebagai *empty array*.
 
 
-  Berikutnya adalah contoh fungsi dengan *default parameter
+  Berikutnya adalah contoh fungsi dengan *default parameter*
 
   **default-params.js**
   ```js

@@ -389,7 +389,7 @@ terdapat di dalam *array*:
   **map-demo.js**
   ```js
   let data = ['a', 'b', 'c', 'd', 'e'];
-  let result = data.map(x => {`item${x.toUpperCase()}`;});
+  let result = data.map(x => `item_${x.toUpperCase()}`);
   console.log(result);
   ```
 
