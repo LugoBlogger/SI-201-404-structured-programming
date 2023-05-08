@@ -4,9 +4,9 @@ Dosen pengampu: **Henokh Lugo Hariyanto**
 Asisten mata kuliah: **Feriyanto - (10191031)**
 
 **Tujuan**:
-- Mampu memahami *parameters* dan *arguments* dari suatu fungsi
-- Mampu memahami nilai yang dihasilkan fungsi, maupun *side effect*
-- Mampu memahami dasar *functional programming* di JavaScript
+- Mampu memahami beberapa *standard library* dalam JavaScript
+- Mampu memahami *regular expression* dalam JavaScript
+- Mampu menggunakan *Dates and Times standard library*
 
 > Tips belajar bahasa pemrograman adalah mengetik ulang perintah yang kita 
 > temukan di buku atau di internet, lalu kita ubah-ubah untuk menguji pemahaman
@@ -29,7 +29,7 @@ Ada beberapa *library* yang akan kita bahas.
 
 *Library* yang disebutkan diatas hanyalah segelintir dari berbagai macam
 *standar library* dan *built-in object* dalam JavaScript. Lebih lengkap dapat
-melihat dokumentasi di Mozilla Documentation Network tentang 
+melihat dokumentasi di Mozilla Developer Network (MDN) Web Docs tentang 
 [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) 
 dan [Standard built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
@@ -174,7 +174,7 @@ hal dasar yang dapat dilakukan dengan *Map*
   let m = new Map();
   console.log(m) ;
 
-  m.set("one", 1);    // mengisi map dengan pasangan key, val + "one", 1
+  m.set("one", 1);    // mengisi map dengan pasangan key, val = "one", 1
   m.set("two", 2);    // mengisi map dengan pasangan key, val = "two", 2
   m.set("three", 3).set("four", 4);   // pengisian map dapat dilakukan dengan bentuk rantai .set berulang-ulang
   console.log(m);
@@ -790,7 +790,7 @@ setTimeout(() => { clearInterval(clock); }, 10000);
 
 
 1. [30 poin] Pilih dan telusuri satu [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) 
-   di daftar yang ada di Mozilla Documentation Network. Berikan salah satu
+   di daftar yang ada di MDN Web Docs. Berikan salah satu
    contoh penggunaan yang berhubungan langsung dengan permasalahan organisasi
    atau manajemen.
 
