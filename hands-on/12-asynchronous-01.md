@@ -84,6 +84,19 @@ program pertama terus berjalan.
 
 ## Contoh program asinkronus
 
+Berikut ini adalah program yang menunjukkan penggunaan pemrograman asinkronus.
+Terdapat istilah fungsi *callback* yang artinya fungsi ini akan menjadi suatu
+argument untuk fungsi lain (sebut *parent* function). *Parent* function
+ini akan berjalan di *background* (tetap dieksekusi) sampai suatu
+*event* terjadi yang mengakibatkan fungsi *callback* dieksekusi atau 
+lebih tepatnya dipanggil (*invoking*).
+
+Pada program pertama ini, fungsi `setTimeout()` memerlukan dua input
+argument. Pertama adalah *callback function* yang akan dipanggil setelah
+jeda (*delay*) waktu pada input argument kedua selesai.
+Pada contoh ini kita menginputkan argument *delay* sebanyak 2 detik. 
+Input argument ini bersatuan *millisecond*, jadi kita inputkan 2 detik
+sebagai 2,000 *milliseconds*.
 **timer-set-timeout.js**
 ```js
 // Only run once after put a delay of 2 secons
@@ -93,6 +106,19 @@ console.log("delay two seconds from now");
 const callbackFunc = () => {console.log("run after two seconds")};
 setTimeout(callbackFunc, 2_000);
 ```
+
+Program kedua kita memiliki *nested callback function*. Artinya
+*Callback function* di dalam *callback function* di dalam *callback function*,
+dan seterusnya. Di program kedua ini, `callbackFunc()` merupakan 
+*callback function* untuk `setInterval()` dan variable `updateInterval()`
+yang merupakan referensi ke fungsi `setInterval()` menjadi bagian dari
+*callback function* `stop_callbackFunc()`.
+Dan terakhir `stop_callbackFunc()` merupakan argument fungsi `setTimeout()`.
+
+Kita lihat disini kerumitan yang ditimbulkan dengan proses definisi
+*callback function* yang saling berkaitan. Kita akan melihat di 
+bagian kedua bahwa hal ini dapat kita sederhanakan dan penulisan program
+menjadi lebih elegan menggunakan objek *Promise*.
 
 **timer-set-interval.js**
 ```js
@@ -126,6 +152,9 @@ Untuk contoh terakhir, program terdiri dari tiga berkas yaitu
 `events-demo.html`, `events-demo.css`, dan `events-demo.js`.
 Program ini akan memberikan kita tampilan di berkas `.html`
 berupa tombol untuk mengubah-ubah warna suatu teks.
+
+Buat suatu folder bernama *events* dan taruh ketiga berkas tersebut
+(`.html`, `.css`, dan `.js`) dalam folder tersebut.
 
 **events-demo.html**
 ```html
