@@ -36,15 +36,15 @@ sebelumnya) telah selesai dijalankan.
 
 Program asinkronus merupakan program yang dapat berjalan tanpa harus menunggu
 program lain selesai melakukan proses eksekusinya. Misal ada dua program 
-yang satu melakukan download lagu, dan yang lain memutar MP3 player. Atau 
-saat kalian membuka aplikasi Instagra, kalian juga menerima notifikasi pesan 
-masuk dari aplikas WhatsApp. Bisa dikatkan
+yang satu melakukan download lagu, dan yang lain memutar file MP3. Atau 
+saat kalian membuka aplikasi Instagram, kalian juga menerima notifikasi pesan 
+masuk dari aplikasi WhatsApp. Bisa dikatakan
 hampir semua aplikasi yang ada di laptop/PC atau *smartphone* yang kita 
 gunakan berbasis pada pemrograman asinkronus.
 
-Bagaimana pemrograman asinkronus ini bekerja pada level prosesor bukanlah 
-menjadi persoalan yang kita harus pelajari. Namun bagaimana cara menggunakan
-fitur pemrograman asinkronus di JavaScript adalah yang kita pelajari.
+Detail pemrograman asinkronus ini bekerja pada level prosesor bukanlah 
+menjadi persoalan yang kita harus pelajari. Namun tata cara menggunakan
+fitur pemrograman asinkronus di JavaScript adalah yang sangat perlu kita pelajari.
 
 Berikut sedikit ilustrasi perbandingan pemrograman sinkronus dan 
 asinkronus menurut (Haverbeke, 2018)
@@ -96,7 +96,8 @@ argument. Pertama adalah *callback function* yang akan dipanggil setelah
 jeda (*delay*) waktu pada input argument kedua selesai.
 Pada contoh ini kita menginputkan argument *delay* sebanyak 2 detik. 
 Input argument ini bersatuan *millisecond*, jadi kita inputkan 2 detik
-sebagai 2,000 *milliseconds*.
+sebagai 2,000 *milliseconds*.     
+
 **timer-set-timeout.js**
 ```js
 // Only run once after put a delay of 2 secons
@@ -235,5 +236,5 @@ btnChange.addEventListener("click", changeColor);
 2. [70 poin] Pelajari penggunaan Web API fetch dari blog berikut: 
    [JavaScript fetch API Ultimate Guide](https://blog.webdevsimplified.com/2022-01/js-fetch-api/)
    Tuliskan hal yang kalian benar-benar pahami.
-   Dan tuliskan juga hal yang belum bisa kalian pahami daari tulisan dalam
+   Dan tuliskan juga hal yang belum bisa kalian pahami dari tulisan dalam
    *blog* tersebut.
