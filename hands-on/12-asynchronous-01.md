@@ -116,11 +116,6 @@ yang merupakan referensi ke fungsi `setInterval()` menjadi bagian dari
 *callback function* `stop_callbackFunc()`.
 Dan terakhir `stop_callbackFunc()` merupakan argument fungsi `setTimeout()`.
 
-Kita lihat disini kerumitan yang ditimbulkan dengan proses definisi
-*callback function* yang saling berkaitan. Kita akan melihat di 
-bagian kedua bahwa hal ini dapat kita sederhanakan dan penulisan program
-menjadi lebih elegan menggunakan objek *Promise*.
-
 **timer-set-interval.js**
 ```js
 // The following program will print sequentially
@@ -148,7 +143,15 @@ setTimeout(stop_callbackFunc, 10_500);   // add a little bit milliseconds
                                          // from 10 secs.
 
 ```
+Kita lihat disini kerumitan yang ditimbulkan dengan alur penggunaan  
+*callback function* yang saling berkaitan. Kita akan melihat di 
+bagian kedua bahwa hal ini dapat kita sederhanakan dan penulisan program
+menjadi lebih elegan menggunakan objek *Promise*.
 
+<img src="../img-resources/pimp-my-ride-meme-callbacks.jpeg" width=600>
+
+<br/>
+<br/>
 Untuk contoh terakhir, program terdiri dari tiga berkas yaitu 
 `events-demo.html`, `events-demo.css`, dan `events-demo.js`.
 Program ini akan memberikan kita tampilan di berkas `.html`
