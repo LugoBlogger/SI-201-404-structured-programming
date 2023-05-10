@@ -28,6 +28,60 @@ Di tahap pertama ini kita akan membahas dua hal berikut:
 
 ## Mengenal pemrograman asinkronus
 
+Sebelum mengerti asinkronus, kita harus mengerti bahwa pemroograman sinkronus
+adalah semua progran yang telah kita pelajari di bagian sebelumnya
+yaitu saat setiap perintah-perintah (statements) dieksekusi secara berurutan, 
+setiap perintah akan dieksekusi setelah perintah yang dipanggil (umumnya di baris
+sebelumnya) telah selesai dijalankan.
+
+Program asinkronus merupakan program yang dapat berjalan tanpa harus menunggu
+program lain selesai melakukan proses eksekusinya. Misal ada dua program 
+yang satu melakukan download lagu, dan yang lain memutar MP3 player. Atau 
+saat kalian membuka aplikasi Instagra, kalian juga menerima notifikasi pesan 
+masuk dari aplikas WhatsApp. Bisa dikatkan
+hampir semua aplikasi yang ada di laptop/PC atau *smartphone* yang kita 
+gunakan berbasis pada pemrograman asinkronus.
+
+Bagaimana pemrograman asinkronus ini bekerja pada level prosesor bukanlah 
+menjadi persoalan yang kita harus pelajari. Namun bagaimana cara menggunakan
+fitur pemrograman asinkronus di JavaScript adalah yang kita pelajari.
+
+Berikut sedikit ilustrasi perbandingan pemrograman sinkronus dan 
+asinkronus menurut (Haverbeke, 2018)
+
+<img src="../img-resources/asynchronous-synchronous-timeline.png" width=1200>
+
+Dari gambar di atas terdapat istilah *threads* yang merupakan potongan
+kode yang dijalankan pada suatu proses dalam suatu prosesor. Prosesor 
+menjalankan proses besar yang terdiri dari beberapa *threads*. Seperti
+sistem operasi merupakan proses besar yang terdiri dari potongan program
+program kecil untuk mengatur hubungan antara *hardware* di dalam komputer 
+dan sistem I/O 
+(input/output termasuk monitor, keyboard, dan mouse)
+
+Program-program yang kita buat di dalam Node.js dijalankan oleh *thread* ini.
+
+Garis biru menunjukkan perjalanan waktu saat suatu program dieksekusi.
+Garis merah adalah ketika program melakukan suatu *request* ke server.
+Ketika kita menggunakan pemrograman sinkronus, kita harus menunggu program
+pertama selesai melakukan *request*, baru kita bisa menjalankan program kedua.
+
+Jika kita lakukan dengan dua *threads*, kita tidak bisa mengkomunikasikan
+antara dua program ini misal program kedua akan melakukan instruksi kedua
+(setelah program kedua melakukan *request*).
+
+Namun dengan asinkronus, kita bisa membuat dua-duanya berjalan beriringan.
+Dan ketika program pertama selesai melakukan *request* maka instruksi program
+kedua bisa langsung dijalankan tanpa perlu melakukan *request* oleh program kedua
+ini.
+
+Bisa dikatakan, program pertama tetap berjalan di *background* sembari
+kita bisa menjalankan program kedua. Kemapuan seperti ini sangatlah diperlukan
+misal kita ingin menunggu input dari user dan melakukan suatu aksi ketika user
+melakukan suatu input ke dalam program kita. Mirip seperti while loop
+yang akan terhenti jika ada user input namun kita disini membiarkan 
+program pertama terus berjalan.
+
 ## Contoh program asinkronus
 
 **timer-set-timeout.js**
