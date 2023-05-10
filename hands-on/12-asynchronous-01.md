@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 12 - *JavaScript Standard Library*
+# Modul praktikum - Minggu 12 - *Asyncrhonous Programming in JavaScript*
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Feriyanto - (10191031)**
