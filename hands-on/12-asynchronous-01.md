@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 12 - *Asynchronous Programming in JavaScript*
+# Modul praktikum - Minggu 12 - *Asynchronous Programming in JavaScript* (bagian 1)
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Feriyanto - (10191031)**
@@ -106,6 +106,7 @@ console.log("delay two seconds from now");
 
 const callbackFunc = () => {console.log("run after two seconds")};
 setTimeout(callbackFunc, 2_000);
+console.log("Do something during 2 secs");
 ```
 
 Program kedua kita memiliki *nested callback function*. Artinya
@@ -203,8 +204,6 @@ function changeColor() {
     outElement.className = "green";
   } 
 }
-
-// changeColor()
 
 let btnChange = document.getElementById("change");
 
