@@ -244,7 +244,8 @@ main();
 
 1. [30 poin] Bacalah dengan seksama kembali pertemuan ini
    dan tuliskan kembali dengan menggunakan bahasa yang kalian pahami 
-   terkait Promise, async, dan await. Hanya tulis yang kalian benar-benar pahami.
+   terkait Promise, async, dan await. Hanya tulis yang kalian benar-benar pahami. Bisa juga kalian memanbahkan hasil eksplorasi dari internet
+   jika diperlukan untuk memperjelas apa yang kalian tulis.
    Jawaban yang sama akan dibagi dengan jumlah mahasiswa yang memiliki 
    jawaban sama.
 
