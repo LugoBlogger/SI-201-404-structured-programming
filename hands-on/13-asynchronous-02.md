@@ -1,4 +1,4 @@
-# Modul praktikum - MingVgu 13 - *Asynchronous Programming in JavaScript* (bagian 2)
+# Modul praktikum - Minggu 13 - *Asynchronous Programming in JavaScript* (bagian 2)
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Feriyanto - (10191031)**
