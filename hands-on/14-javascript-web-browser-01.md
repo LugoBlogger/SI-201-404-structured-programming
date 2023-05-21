@@ -250,17 +250,257 @@ dari 9 kotak yang disusun dalam grid 3x3, pertama
 kita mencoba untuk menggandakan setiap `<button>` element
 di dalam file `App.js`.
 
-<img src="../img-resources/tic-tac-toe-three-squares.png">
+<img src="../img-resources/tic-tac-toe-three-squares.png"/>
+
+Pada kode di `App.js`, kita menambahkan dua buah `<button>`
+element dan apitan `<> </>`. Apitan ini dikenal sebagai
+*Fragment element* dalam komponen React. Fragment element ini 
+bertujuan untuk dapat memberikan keluaran HTML element
+yang saling bersebelahan dan dijadikan satu grup nilai luaran.
+Sama seperti halnya Array untuk mengumpulkan beberapa nilai menjadi satu, Fragment element digunakan untuk menyatukan
+beberapa HTML element menjadi satu element besar.
+Lalu terakhir keluaran ini perlu diapit oleh tanda kurung `()`
+yang menyatakan keluaran ini dilihat sebagai satu `expression`, 
+```js
+export default function Square() {
+  return (
+    <>
+      <button className="square">X</button>
+      <button className="square">X</button>
+      <button className="square">X</button>
+    </>
+  );
+}
+```
+
+Untuk membuat papan permainan Tic-Tac-Toe 3x3, kita
+perlu membagi setiap tiga buah buton dengan elemmnt `<div>`.
+Agar setiap pembagian `<div>` berada di baris berikutnya
+(tersusun vertikal)
+maka kita dapat menambahkan pengaturan styling `.board-row`
+yang sudah disediakan di dalam `styles.css` dan cukup memanggilnya
+dengan menambahkan `className="board-row"`
+
+Karena kita telah menyusun papan, 
+kita tidak lagi menamakan fungsi di dalam `App.js` ini 
+sebagai `Square()` melainkan sebagai `Board()`
+dan juga untuk mempermudah penyusunan program kedepan
+kita ganti teks "X" di setiap `<button>` dengan 
+teks 1, 2, 3, ..., 9. Hasil akhir file `App.js` adalah sebagai 
+berikut
+
+```js
+export default function Board() {
+  return (
+    <>
+      <div className="board-row">
+        <button className="square">1</button>
+        <button className="square">2</button>
+        <button className="square">3</button>
+      </div>
+      <div className="board-row">
+        <button className="square">4</button>
+        <button className="square">5</button>
+        <button className="square">6</button>
+      </div>
+      <div className="board-row">
+        <button className="square">7</button>
+        <button className="square">8</button>
+        <button className="square">9</button>
+      </div>
+    </>
+  );
+}
+```
+
+dan mendapatkan tampilan akhir di browser.
+
+<img src="../img-resources/tic-tac-toe-first-board.png">
+
 
 
 ### React `props` untuk data manipulasi komponen `Square`
 
+React `props` merupakan nama lain untuk data yang dapat
+kita sematkan ke HTML element. Dengan gabungan fungsi
+HTML element dari bawaan framework React dan props
+kita dapat membangun HTML element dengan attribute
+dan text terapit lebih dinamik (nilainya dapat kita
+ubah-ubah sesuai kebutuhan tanpa harus menulis ulang
+HTML element)
+
+Seperti kita ketahui di dalam fungsi `Board()` di file
+`App.js`, kita menuliskan sembilan kali `<button>`.
+Kita dapat menuliskan fungsi `Square()` untuk masing-masing
+kotak, dan memanggil fungsi `Square()` di dalam `Board()`.
+Sehingga `App.js` menjadi
+
+```js
+function Square({ value }) {
+  return <button className="square">{value}</button>
+}
+
+export default function Board() {
+  return (
+    <>
+      <div className="board-row">
+        <Square value="1"/>
+        <Square value="2"/>
+        <Square value="3"/>
+      </div>
+      <div className="board-row">
+        <Square value="4"/>
+        <Square value="5"/>
+        <Square value="6"/>
+      </div>
+      <div className="board-row">
+        <Square value="7"/>
+        <Square value="8"/>
+        <Square value="9"/>
+      </div>
+    </>
+  );
+}
+```
+React `props` di atas diwakili oleh parameter `value` 
+dalam kelas `Square()` di atas. Perlu diingat React `props`
+disini merupakan object sehingga ketika diinputkan ke dalam
+pendefinisian `Square()` kita perlu melakukan destructuring
+atau dalam kata lain menambahkan tanda kurung kurawal.
+Demikian juga selama dalam lingkup HTML element, parameter
+`value` harus diapit dalam kurung kurawal (ingat kesamaan
+ini dengan penandaan variable di template literal). 
+Hasil didapatkan seperti sebelumnya namun kode JavaScript
+kita lebih terstruktur dan lebih modular (terpisah-pisah
+dengan jelas tiap komponennya)
+
+
 ### Menambahkan *interactivity*
+Tahap berikutnya adalah menambahkan fungsi callback `handleClick`
+pada attribute di element `<button>` di dalam komponen `Square()`.
+Fungsi `handleClick` ini nantinya akan terpicu ketika
+user melakukan klik terhadap kotak-kotak komponen `Square()`
+di dalam komponen `Board()` dan lalu melakukan setting nilai
+teks isian element `<button>` menjadi "X".
+
+Pertama kita buat fungsi callback `handleClick()` dan 
+mengubah komponen `Square()` sebagai berikut:
+
+```js
+function handleClick() {
+  console.log("clicked");
+}
+
+function Square({ value }) {
+  return (
+    <button 
+      className="square"
+      onClick={handleClick}
+    >
+      {value}
+    </button>
+  );
+}
+```
+Pada potonga update kode bagian komponen `Square()` di atas
+terlihat bahwa fungsi callback `handleClick()` akan 
+melakukan *print out* ke console setiap `Square()` element
+di klik pada papan permainan `Board()`. Kita jadikan fungsi
+callback ini sebagai nilai attribute element `<button>`
+untuk property `onclick`.
+
+Pada gambar di bawah ini terlihat jika kita melakukan 
+proses klik ke semua kotak (sembilan kali klik), 
+maka console di bagian Developer Tools web browser akan 
+mencetak sembilan kali pesan `clicked` (tertera angka 9)
+
+<img src="../img-resources/tic-tac-toe-callback-func-in-square.png">
+
+Untuk bisa menyimpan nilai "X" di masing-masing komponen
+`Square()` ketika dilakukan klik, kita perlu suatu object
+baru untuk mengingat hal ini. React menyediakan object ini
+sebagai suatu *state*. Karena ada sembilan kotak, maka
+setiap kotak harus dapat menyimpan masing-masing state
+dan juga kita harus bisa memanipulasi setiap *state* ini
+dari tidak ada teks "X" menjadi ada.
+
+Berikut adalah update terakhir untuk fungsi callback `handleClick()` dan `Square()`
+
+```js
+import { useState } from 'react';
+
+function Square() {
+  const [value, setValue] = useState(null);
+
+  return (
+    <button 
+      className="square"
+      onClick={() => setValue("X")}
+    >
+      {value}
+    </button>
+  );
+}
+```
+Pertama kita melakukan import object `useState` dari React library.
+Kemudian kita inisialisasi *state* dengan nilai null melalui
+pemanggilan object `useState(null)`. Keluaran dari 
+object `useState` merupakan dua buah object. Yang pertama
+adalah variable `value` yang akan menyimpan `state`
+dan yang kedua adalah `setValue` digunakan sebagai fungsi
+untuk mengubah `state`. 
+Terlihat juga bahwal fungsi callback `handleClick` telah dilebur
+menjadi lebih ringkas menggunakan arrow function ke dalam
+nilai attribute `onclick`
+
+Kita juga tidak lagi memerlukan argument di komponen
+`Square()`, maka attribute `value` saat pemanggilan `Square()`
+di komponen `Board()` tidak perlu lagi dilakukan, sehingga
+didapatkan bentuk akhir komponen `Board()` sebagai berikut:
+
+```js
+export default function Board() {
+  return (
+    <>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+    </>
+  );
+}
+```
+
+Jika telah selesai update komponen `Square()`
+dan `Board()` di atas maka kita bisa lihat perubahan
+`Square()` element ketika dilakukan klik seperti
+pada gambar di bawah ini
+
+<img src="../img-resources/tic-tac-toe-square-use-state.gif">
 
 
 ## Menyelesaikan program Tic-Tac-Toe
 
+Jika telah sampai tahap ini, kita telah membangun kerangka
+dasar permainan Tic-Tac-Toe dan tinggal menambahkan fitur-fitur
+tambahan lainnya agar dapat bergantian mengisi kotak dengan 
+"X" dan "O". Serta juga penentuan akhir permainan siapa yang
+menang atau terjadi *draw*.
+
 ### Menggunakan React `useState` untuk menyatakan `state` permainan
+
+
 
 ### Kondisi untuk menambahkan pergantian pemain
 
