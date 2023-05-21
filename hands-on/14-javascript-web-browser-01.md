@@ -4,7 +4,8 @@ Dosen pengampu: **Henokh Lugo Hariyanto**
 Asisten mata kuliah: **Feriyanto - (10191031)**
 
 **Tujuan**:
-- Mampu memahami beberapa aplikasi JavaScript dalam web browser
+- Mampu memmbuat aplikasi menggunakan JavaScript
+  yang dapat dijalankan di dalam *web browser*.
 
 > Tips belajar bahasa pemrograman adalah mengetik ulang perintah yang kita 
 > temukan di buku atau di internet, lalu kita ubah-ubah untuk menguji pemahaman
@@ -40,7 +41,7 @@ Tutorial ini akan dibagi menjadi 4 tahap, yaitu:
 Di akhir tutorial ini, kita akan mengerti cara membuat game Tic-Tac-Toe seperti
 pada gambar di bawah ini:
 
-<img src="../img-resources/tic-tac-toe-finish-game.png" width=600>
+<img src="../img-resources/tic-tac-toe-finish-game.png" width=400>
 
 Bagian sebelah kanan yang menunjukkan *history* 
 permainan dapat dilewati jika dirasa tutorial cukup
@@ -132,9 +133,129 @@ Langkah-langkah untuk mempersiapkan *workspace*
 
 ## Gambaran singkat terkait program dan React
 
+Selama pengembangan program ini kita akan membuka secara bersamaan
+VSCode dan web browser (dalam contoh ini akan di pakai Google
+Chrome Web Browser). Ketika kita mengetikkan perintah di terminal
+`npm run dev`, Next.js framework akan senantias terus menerus
+melakukan `fast refresh` ketika ada di perubahan dalam program
+yang kita ketikan di VScode, sehingga setiap perubahan 
+(selama kode benar) akan segera di tampilkan ke web browser.
+Apabila terjadi sesuatu yang tidak semestinya seperti *bug*, 
+maka cukup dilakukan perintah penghentian *localhost* dengan
+menekan tombol Ctrl+C di terminal VSCode.
+
+<img src="../img-resources/tic-tac-toe-vscode-and-browser.png"
+ width=800> 
+
+
+ 
 ### Isi folder `pages` dan `styles`.
 
+Selama proses pembuatan program Tic-Tac-Toe, kita akan 
+sering mengedit file `App.js`.
+
+#### `App.js`
+Di dalam file `App.js` terdapat potongan kode JavaScript berikut:
+```js
+export default function Square() {
+  return <button className="square">X</button>;
+}
+```
+Potongan kode di atas merupakan fungsi JavaScript bernama 
+`Square()` tanpa parameter (input). Keyword `export` menunjukkan
+bahwa fungsi ini akan di-*export* supaya bisa dipanggil oleh berkas
+lain (yaitu `index.js`). Keyword `default` merupakan penunjuk
+bahwa secara *default* fungsi ini akan di-*export* apabila
+terdapat lebih dari satu fungsi di dalam file `App.js`.
+
+Fungsi `Square()` ini akan dipanggil dan memberikan output di 
+*web browser* sebagai suatu kotak yang berisi huruf "X".
+
+Pada bagian `return`, kita melihat terdapat HTML element `<button>`
+dengan attribute `className="square"`. Attribute ini akan 
+secara otomatis melakukan *look-up* terhadap `styles.css` yang
+terdapat dalam folder `styles`. Kita melihat disini terdapat
+campuran sintaks HTML dan JavaScript, kode semacam ini 
+disebut JSX (JavaScript XML).
+
+<img src="../img-resources/tic-tac-toe-square-class-names.png"
+   width=600>
+
+#### `styles.css`
+
+Merupakan file yang digunakan untuk mengatur *styling* dari
+HTML element, seperti elemen `<button>` yang diatur
+oleh `className="square"` yang secara otomatis 
+memanggil styling `.square` dari file `styles.css`. 
+Ada beberapa `classNames` yang telah diatur styling nya 
+dan akan digunakan selama pembuatan 
+program:
+- `.board-row`
+- `.status`
+- `.game`
+- `.game-info`
+
+
+#### `index.js`
+
+```js
+import App from './App';
+import Head from 'next/head';
+
+export default function HomePage() {
+  return (
+    <>
+      <Head>
+        <title>Document</title>
+      </Head>
+      <div id="root">
+        <App />
+      </div>
+    </>
+  );
+}
+```
+
+Dua baris `import` di atas digunakan untuk memanggil fungsi 
+`Square` di `App.js` yang akan memberikan keluaran (*return value*)
+berupa element `<button>`. Element `<button>` ini akan diapit
+(*wrapped*) dalam element `<div id="root">  </div>`.
+Element `<Head>` merupakan komponen dalam Next.js yang digunakan
+untuk menambahkan komponen di dalam element `<head>` HTML.
+
+File ini menjadi jembatan antara `App.js` dan *web browser*.
+Di dalam tutorial ini, kita tidak akan menyentuh file ini.
+
+
+#### `_app.js`
+
+```js
+import '../styles/styles.css';
+
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+```
+
+Merupakan file default dari Next.js framework yang harus ada
+untuk menjembatani antara styling `styles.css` dan HTML 
+yang di-*generate* oleh React. Semua file `.css` yang
+ada di dalam folder `styles` ini akan mempengaruhi styling 
+website secara global. Untuk melakukan styling secara tersendiri
+untuk masing-masing halaman web dapat dilihat pada tutorial
+[Create Your First App](https://nextjs.org/learn/basics/assets-metadata-css/layout-component) di dokumentasi Next.js.
+Disini kita tidak menggunakan prosedur tersebut.
+
+
 ### Membuat papan permainan Tic-Tac-Toe
+
+Untuk membuat papan permainan Tic-Tac-Toe yang terdiri
+dari 9 kotak yang disusun dalam grid 3x3, pertama
+kita mencoba untuk menggandakan setiap `<button>` element
+di dalam file `App.js`.
+
+<img src="../img-resources/tic-tac-toe-three-squares.png" width=600>
+
 
 ### React `props` untuk data manipulasi komponen `Square`
 
