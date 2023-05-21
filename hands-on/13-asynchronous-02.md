@@ -50,10 +50,10 @@ method `.then(callbackFunc)` yang tersedia dalam Promise object
 
 Sintaks dari penulisan Promise object:
 ```js
-   p1(arg1)
-      .then(callbackFunci)
-      .then(callbackFunc2)
-      .catch(callbackErrorHandler)
+p1(arg1)
+  .then(callbackFunci)
+  .then(callbackFunc2)
+  .catch(callbackErrorHandler)
 ```
 
 Makna dari program tersebut adalah `p1` adalah suat fungsi yang menghasilkan
@@ -164,7 +164,7 @@ Diagram waktu untuk proses ini cukup rumit, namun dapat
 digambarkan sebagai berikut. Pada pertemuan kuliah akan dijelaskan 
 kembali.
 
-<img src="../img-resources/promise-and-error-timeline.png" width=1000>
+<img src="../img-resources/promise-and-error-timeline.png" width=600>
 
 
 ## `await` dan `async`
@@ -173,11 +173,9 @@ Merupakan dua bua keyword yang cukup penting dan akan sering dijumpai
 ketika bekerja dengan program JavaScript yang memiliki fitur
 interaktif. 
 
-Keyword pertama yaitu `await` digunakan untuk mengubah suatu fungsi
-yang bersifat sinkronus menjadi fungsi asinkronus.
-Perubahan ini akan mengakibatkan fungsi sinkronus tersebut
-memiliki sifat-sifat suatu fungsi asinkronus. Keempat sifat itu adalah
-keadaan Promise object ketika fungsi tersebut dieksekusi, yaitu:
+Keyword pertama yaitu `await` digunakan untuk mengubah suatu 
+Prmise object menuju dan menunggu (*wait*) keadaan *settled*.
+Di dalam Promise object dikenal empat macam keadaan yaitu:
 
 - fulfilled
 - rejected
@@ -185,8 +183,7 @@ keadaan Promise object ketika fungsi tersebut dieksekusi, yaitu:
 - resolved
 
 Ke-empat *state* dari Promise object tersebut akan dijelaskan lebih lanjut
-dalam perkuliahan. Fungsi asinkronus yang diberi awalan `await` akan
-tetap menjadi fungsi asinkronus.
+dalam perkuliahan. 
 
 
 Keyword kedua adalah `async`. Keyword ini adalah pelengkap dari penggunaan
