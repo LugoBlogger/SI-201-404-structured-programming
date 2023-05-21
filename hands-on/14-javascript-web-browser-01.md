@@ -89,12 +89,10 @@ Langkah-langkah untuk mempersiapkan *workspace*
 5. Susun secara rapi data JSON dalam `package.json` dan tambahkan
    *property* berikut:
    ```json
-   // package.json
    {
     "scripts": {
       "dev": "next dev"
     },
-    ...
    }
    ```
    *Property* tersebut akan memberikan kita perintah untuk 
@@ -144,8 +142,7 @@ Apabila terjadi sesuatu yang tidak semestinya seperti *bug*,
 maka cukup dilakukan perintah penghentian *localhost* dengan
 menekan tombol Ctrl+C di terminal VSCode.
 
-<img src="../img-resources/tic-tac-toe-vscode-and-browser.png"
- width=800> 
+<img src="../img-resources/tic-tac-toe-vscode-and-browser.png"> 
 
 
  
@@ -178,8 +175,7 @@ terdapat dalam folder `styles`. Kita melihat disini terdapat
 campuran sintaks HTML dan JavaScript, kode semacam ini 
 disebut JSX (JavaScript XML).
 
-<img src="../img-resources/tic-tac-toe-square-class-names.png"
-   width=600>
+<img src="../img-resources/tic-tac-toe-square-class-names.png">
 
 #### `styles.css`
 
@@ -254,7 +250,7 @@ dari 9 kotak yang disusun dalam grid 3x3, pertama
 kita mencoba untuk menggandakan setiap `<button>` element
 di dalam file `App.js`.
 
-<img src="../img-resources/tic-tac-toe-three-squares.png" width=600>
+<img src="../img-resources/tic-tac-toe-three-squares.png">
 
 
 ### React `props` untuk data manipulasi komponen `Square`
