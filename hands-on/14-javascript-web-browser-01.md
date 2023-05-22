@@ -429,13 +429,17 @@ Berikut adalah update terakhir untuk fungsi callback `handleClick()` dan `Square
 ```js
 import { useState } from 'react';
 
+function handleClick(setValue) {
+  setValue("X");
+}
+
 function Square() {
   const [value, setValue] = useState(null);
 
   return (
     <button 
       className="square"
-      onClick={() => setValue("X")}
+      onClick={() => handleClick(setValue)}
     >
       {value}
     </button>
@@ -449,9 +453,15 @@ object `useState` merupakan dua buah object. Yang pertama
 adalah variable `value` yang akan menyimpan `state`
 dan yang kedua adalah `setValue` digunakan sebagai fungsi
 untuk mengubah `state`. 
-Terlihat juga bahwal fungsi callback `handleClick` telah dilebur
-menjadi lebih ringkas menggunakan arrow function ke dalam
-nilai attribute `onclick`
+
+Terlihat juga bahwal fungsi callback `handleClick` memiliki
+tambahan parameter `setValue` yang akan mengupdate nilai
+`value` ketika element `<button>` di klik oleh user.
+Kita melihat juga, nilai dari attribute `onclick` merupakan
+suatu callback function yang memamnggil fungsi `handleClick`.
+Kita tidak bisa mengatur secara langsung `onclick={handleClick(setValue)}` karena dengan melakukan seperti itu kita tidak
+lagi memberikan callback function namun memberikan nilai
+return dari `handleClick`.
 
 Kita juga tidak lagi memerlukan argument di komponen
 `Square()`, maka attribute `value` saat pemanggilan `Square()`
@@ -498,17 +508,361 @@ tambahan lainnya agar dapat bergantian mengisi kotak dengan
 "X" dan "O". Serta juga penentuan akhir permainan siapa yang
 menang atau terjadi *draw*.
 
-### Menggunakan React `useState` untuk menyatakan `state` permainan
+Sejauh ini kita masih menyimpan semua state permainan di 
+masing-masing komponen `Square()`. Pendekatan ini masih
+ mengharuskan kita untuk menyusun mekanisme 
+komunikasi antar `Square()` terkait state mereka.
+Penulisan program dengan mekanisme state di setiap `Square()`
+akan menghasilkan program yang cukup rumit dipahami dan 
+amat susah untuk di lakukan *refactor* (mekaniseme
+untuk memecah program menjadi bagian-bagian kecil komponen yang 
+saling independen dan dikoordinasi oleh satu komponen besar).
 
+Pendekatan yang lebih baik adalah kita menyimpan semua *state*
+dari komponen `Square()` di dalam komponen `Board()` lalu 
+mengkomunikasikan *state* dan *callback function*
+ke setiap `Square()`. Apabila terjadi suatu *clicked event* oleh
+user di suatu `Square()`, *callback function* yang didistribusikan
+ini akan dipanggil dan memicu perubahan `state` di komponen 
+`Board()`. Lalu komponen `Board()` akan mengkomunikasikan 
+kembali perubahasa `state` ini ke komponen `Square()` tersebut.
+
+Jika digambarkan proses di atas adalah sebagai berikut:
+
+**Mekanisme perubahan state oleh`Board()**
+<img src="../img-resources/tic-tac-toe-states-on-board.png">
+
+### Memindahkan `useState` dari `Square()` ke `Board()` (lifted up)
+
+Seperti yang telah dijelaskan di paragraf sebelumnya.
+Kita susun terlebih dahulu sembilan buah state di `Board()`.
+Kita juga mendeklarasikan fungsi `handleClick()` dengan 
+parameter nomor urut `Square()`, state semua `Squares()`
+(dalam variable `squares`) dan fungsi untuk mengubah-ubah
+state `squares` (yaitu `setSquares`).
+Di dalam fungsi callback `handleClick` ini, kita melakukan 
+penggandaan Array `squares` menggunakan array method
+`.slice()`. Kita perlu menggandakan Array state ini dengan tujuan
+untuk fitur tambahan *history* di bagian terakhir pembuatan 
+program ini.
+
+```js
+function handleClick(i, squares, setSquares) {
+   const nextSquares = squares.slice();
+   nextSquares[i] = 'X';
+   setSquares(nextSquares);
+}
+
+export default function Board() {
+  const [squares, setSquares] = useState(Array(9).fill(null));
+
+  return (
+    <>
+      <div className="board-row">
+        <Square 
+          value={squares[0]} 
+          onSquareClick={() => handleClick(0, squares, setSquares)}/>
+        <Square 
+          value={squares[1]} 
+          onSquareClick={() => handleClick(1, squares, setSquares)}/>
+        <Square 
+          value={squares[2]} 
+          onSquareClick={() => handleClick(2, squares, setSquares)}/>
+      </div>
+      <div className="board-row">
+        <Square 
+          value={squares[3]} 
+          onSquareClick={() => handleClick(3, squares, setSquares)}/>
+        <Square 
+          value={squares[4]} 
+          onSquareClick={() => handleClick(4, squares, setSquares)}/>
+        <Square 
+          value={squares[5]} 
+          onSquareClick={() => handleClick(5, squares, setSquares)}/>
+      </div>
+      <div className="board-row">
+        <Square 
+          value={squares[6]} 
+          onSquareClick={() => handleClick(6, squares, setSquares)}/>
+        <Square 
+          value={squares[7]} 
+          onSquareClick={() => handleClick(7, squares, setSquares)}/>
+        <Square 
+          value={squares[8]} 
+          onSquareClick={() => handleClick(8, squares, setSquares)}/>
+      </div>
+    </>
+  );
+}
+```
+
+Berikutnya kita melakukan perubahan pada kompone `Square()` sehingga mampu
+menerima dua input *property*: `value` dan `onSquareClick`.
+Disini komponen `Square()` hanya berperan sebagai penerima user input 
+ketika user melakukan klik dengan mouse dan kemudian menerima response
+dari komponen Board() update `squares` untuk posisi di kotak yang di klik
+(lihat mekanisme pencetakan teks 'X' di gambar 
+**Mekanisme perubahan state oleh `Board()`**). Dan
+juga komponen `Square()` hanya berfungsi untuk menampilkan
+state yang sedang berlangsung (atau dalam hal ini nilai
+`squares`).
+
+Berikut adalah perubahan kode untuk komponen `Square()`
+```js
+function Square({ value, onSquareClick}) {
+  return (
+    <button className="square" onClick={onSquareClick} >
+      {value}
+    </button>
+  );
+}
+```
+Hasil akhir yang didapatkan tetap sama, namun kode yang kita
+tulis lebih struktur dan mudah untuk dipahami.
 
 
 ### Kondisi untuk menambahkan pergantian pemain
+Fitur berikutnya yang dibangun adalah pergantian pemain
+ketika melakukan klik di tempat berbeda.
+Pemain awal yang akan memulai terlebih dahulu adalah pemain
+dengan tanda "X" dilanjutkan pemain dengan tanda "O", 
+demikian seterusnya bergantian.
+
+Untuk bisa melakukan pergantian pemain, kita butuh suatu
+*state* untuk mencatat kondisi pemain manakah yang akan
+mengklik kotak `Square()`.
+Disini kita membuat `state` dan `setState`-nya untuk state
+ini dari React framework sebagai `xIsNext` dan `setXIsNext`.
+*State* ini akan menyimpan nilai boolean (`true` atau `false`)
+yang menyatakan bahwa proses klik ke kotak `Square()`
+adalah untuk pemain `X` atau tidak.
+
+Untuk dapat menggunakan *state* `xIsNext` kita perlu mengubah callback function *handleClick()* dengan menambahkan beberapa kondisi:
+1. Jika *state* untuk kotak ke-`i` tidak kosong (bukan `null`)
+   dalam program kita dinyatakan dalam `squares[i]`
+   maka kita tidak perlu mengganti isian kotak `Square()`.
+2. Jika *state* untuk `xIsNext` adalah `true` maka kita akan
+   melakukan isian kotak `Square()` (diposisi manapun
+   ketika kotak diklik) dengan 'X'.
+3. Jika *states* untuk `xIsNext` adalah `false` maka kita akan
+   melakukan isian kotak `Square()` (diposisi manapun
+   ketika kotak diklik)  dengan 'O'.
+4. Setelah melakukan opsi (2) atau (3), *state* untuk `xIsNext`
+   harus dinegasi (dari `true` menjadi `false` atau sebaliknya)
+   supaya langkah berikutnya (ketika user melakukan klik
+   pada kotak berikutnya) adalah pemain yang lain.
+
+Implementasi kondisi (1) sampai (4) di atas akan membuat program
+kita melakukan pergantian isian teks "X" dan "O" setiap melakukan
+klik kotak yang berbeda. Berikut perubahan yang terjadi dalam 
+kode program untuk bagian fungsi callback `handleClick()`
+dan komponen `Board()`.
+
+```js
+function handleClick(i, squares, setSquares, xIsNext, setXIsNext) {
+  if (squares[i]) {
+    return;
+  }
+
+  const nextSquares = squares.slice();
+  if (xIsNext) {
+    nextSquares[i] = 'X';
+  } else {
+    nextSquares[i] = 'O';
+  }
+
+  setSquares(nextSquares);
+  setXIsNext(!xIsNext);
+}
+
+// Square() compoonent does not change
+
+export default function Board() {
+  const [xIsNext, setXIsNext] = useState(true);
+  const [squares, setSquares] = useState(Array(9).fill(null));
+
+  return (
+    <>
+      <div className="board-row">
+        <Square 
+          value={squares[0]} 
+          onSquareClick={() => handleClick(
+            0, squares, setSquares, xIsNext, setXIsNext)}/>
+        <Square 
+          value={squares[1]} 
+          onSquareClick={() => handleClick(
+            1, squares, setSquares, xIsNext, setXIsNext)}/>
+        <Square 
+          value={squares[2]} 
+          onSquareClick={() => handleClick(
+            2, squares, setSquares, xIsNext, setXIsNext)}/>
+      </div>
+      <div className="board-row">
+        <Square 
+          value={squares[3]} 
+          onSquareClick={() => handleClick(
+            3, squares, setSquares, xIsNext, setXIsNext)}/>
+        <Square 
+          value={squares[4]} 
+          onSquareClick={() => handleClick(
+            4, squares, setSquares, xIsNext, setXIsNext)}/>
+        <Square 
+          value={squares[5]} 
+          onSquareClick={() => handleClick(
+            5, squares, setSquares, xIsNext, setXIsNext)}/>
+      </div>
+      <div className="board-row">
+        <Square 
+          value={squares[6]} 
+          onSquareClick={() => handleClick(
+            6, squares, setSquares, xIsNext, setXIsNext)}/>
+        <Square 
+          value={squares[7]} 
+          onSquareClick={() => handleClick(
+            7, squares, setSquares, xIsNext, setXIsNext)}/>
+        <Square 
+          value={squares[8]} 
+          onSquareClick={() => handleClick(
+            8, squares, setSquares, xIsNext, setXIsNext)}/>
+      </div>
+    </>
+  );
+}
+```
+
+Di bagian `Board()` terlihat deklarasi *state*
+untuk `xIsNext` dan fungsi untuk pengubahannya
+`setXIsNext`. *State* ini akan terus berubah
+dari *state* awal `null` lalu `true`
+lalu `false` lalu `true`, demikian seterusnya
+bolak balik `true` dan `false` hingga semua kotak
+terisi.
+
+Jika kita melihat program di atas kita masih perlu mengubah
+satu-satu pemanggilan elemen `<Square>` dengan attribute
+`handleClick` yang berbeda. Di bagian 
+[Self-exercise](##Self-exercise) kita akan mengeksplorasi 
+penulisan kode agar kita hanya cukup menuliskan 
+komponen <Square> sekali ditambah penggunaan for loop untuk 
+array dimensi 2.
+
+Hasil akhir yang didapatkan dari penambahan fitur pergantian
+permain adalah sebagai berikut:
+
+<img src="../img-resources/tic-tac-toe-alternate-X-O.gif">
 
 
-### Menambahkan fitur notifikasi untuk pemenang
+Dari animasi di atas masih tersisa satu bagian
+lagi yaitu penentuan pemenang, seperti terlihat
+program permainan yang kita buat masih sangat
+bersih tanpa ada notifikasi pemain yang menang.
 
+### Menambahkan fitur pemberitahuan untuk pemenang
 
-## 
+Untuk menentukan pemain yang menang, kita perlu tahu
+semua kondisi menang ketika kombinasi nomor kotak-kotak ini 
+terisi dengan teks yang sama (semua 'X' atau semua 'O')
+```js
+ [0, 1, 2], // horizontal atas
+ [3, 4, 5], // horizontal tengah
+ [6, 7, 8], // horizontal bawah
+ [0, 3, 6], // vertikal kiri
+ [1, 4, 7], // vertikal tengah
+ [2, 5, 8], // vertikal kanan
+ [0, 4, 8], // diagonal dari kiri atas ke kanan bawah
+ [2, 4, 6], // diagonal dari kanan atas ke kiri bawah
+```
+
+Perlu diingat, setiap proses klik kotak `Square()` kita harus 
+memeriksa kondisi menang yang sudah disebutkan di atas.
+Jadi sangat jelas, syarat menang tersebut harus disisipkan 
+dalam fungsi callback `handleClick()`.
+Ketika menang fungsi callback `handleClick()` harus berhenti.
+Untuk itu kita perlu membuat suatu fungsi baru untuk menentukan
+apakah ketika user melakukan klik pada suatu kotak, kondisi menang
+sudah terpenuhi atau tidak. 
+Kita sebut fungsi baru itu `calculateWinner()`.
+Kita dapat letakkan fungsi ini sesudah deklarasi komponen 
+`Block()` 
+
+```js
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2], 
+    [3, 4, 5], 
+    [6, 7, 8], 
+    [0, 3, 6], 
+    [1, 4, 7], 
+    [2, 5, 8], 
+    [0, 4, 8], 
+    [2, 4, 6], 
+  ];
+
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && (squares[a] === squares[b]) && (squares[a] === squares[c])) {
+      return squares[a];
+    }
+  }
+
+  return null;
+}
+```
+
+Terlihat dari kode di atas, kita melakukan semua uji posisi menang
+dengan cara melakukan iterasi ke array dimensi 2, `lines`.
+Kemudian di setiap iterasi dilakukan pengujian apakah isian teks `Squares`
+(dalam hal ini diwakili oleh *state* `squares`) berisi teks 'X" semua atau
+'O" semua. Dan juga perlu dipastikan bahwa *state* ini tidak boleh *null* 
+(diwakili oleh kondisi pertama `squares[a]`)
+
+Jika semua syarat menang tidak dipenuhi maka fungsi `calculateWinner` akan
+memberikan keluaran berupa `null`.
+
+Tahap berikutnya adalah memanggil fungsi `calculateWinner()` ini di dalam 
+fungsi callback `handleClick()` serta penulisan pesan pemain yang menang.
+Berikut perubahan kode untuk fungsi callback `handleClick()` dan 
+komponen `Board()`
+
+```js
+function handleClick(i, squares, setSquares, xIsNext, setXIsNext) {
+  if (squares[i] || calculateWinner(squares)) {
+    return;
+  }
+
+  // the rest of lines are the same as before
+}
+```
+
+```js
+export default function Board() {
+  const [xIsNext, setXIsNext] = useState(true);
+  const [squares, setSquares] = useState(Array(9).fill(null));
+
+  const winner = calculateWinner(squares);
+  let statusText;
+  if (winner) {
+    statusText = "Winner: " + winner;
+  } else {
+    statusText = "Next player: " + (xIsNext ? "X" : "O");
+  }
+
+  // the rest of lines are the same as before
+}
+```
+
+Jika sudah sampai pada titik ini berarti kita sudah menyelesaikan
+program Tic-Tac-Toe untuk fitur paling dasar. Masih ada tambahan fitur
+yang masih bisa dikembangkan seperti pemberitahuan ketika terjadi draw,
+fitur *time travel* untuk menampilkan *history* langkah, dan fitur
+penanda kotak-kotak bagi pemenang (perlu mengubah CSS element). Semua
+fitur tambahan itu dapat di baca pada subtopik opsional berikutnya tentang
+[*time travel*](##(Opsional)Fitur-tambahan-time-travel-untuk-sejarah-langkah) 
+dan di bagian [Self-exercise](##Self-exercise).
+
+## (Opsional) Fitur tambahan *time travel* untuk sejarah langkah
+
+[Akan ditambahkan nanti, tunggu beberapa saat . . .]
 
 
 
@@ -525,7 +879,8 @@ menang atau terjadi *draw*.
 
 1. Gantilah text dalam tombol *history*, sehingga menjadi 
    tertulis "You are at move #...".
-2. Tulis ulang komponen `Board` menggunakan dua *loops*.
+2. Tulis ulang komponen `Square` di dalam `Board` 
+   menggunakan dua *loops*.
 3. Tambahkan tombol on-off (*toggle button*) 
    untuk mengurutkan urutan langkah dari awal sampai akhir 
    (atau susunan sebaliknya)
