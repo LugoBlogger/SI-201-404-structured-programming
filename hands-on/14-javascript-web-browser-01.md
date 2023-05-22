@@ -851,6 +851,11 @@ export default function Board() {
 }
 ```
 
+Berikut hasil program ketika dilakukan proses klik
+
+<img src="../img-resources/tic-tac-toe-base-game-demo.gif">
+
+
 Jika sudah sampai pada titik ini berarti kita sudah menyelesaikan
 program Tic-Tac-Toe untuk fitur paling dasar. Masih ada tambahan fitur
 yang masih bisa dikembangkan seperti pemberitahuan ketika terjadi draw,
@@ -862,7 +867,7 @@ dan di bagian [Self-exercise](##Self-exercise).
 
 ## (Opsional) Fitur tambahan *time travel* untuk sejarah langkah
 
-[Akan ditambahkan nanti, tunggu beberapa saat . . .]
+[Akan ditambahkan nanti, tunggu dengan sabar . . .]
 
 
 
