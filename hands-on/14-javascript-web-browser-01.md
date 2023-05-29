@@ -87,12 +87,13 @@ Langkah-langkah untuk mempersiapkan *workspace*
    ╰─ package.json 
    ```
 5. Susun secara rapi data JSON dalam `package.json` dan tambahkan
-   *property* berikut:
+   *property* berikut setelah *property* `dependencies` (ingat koma pemisah
+   antar *property name*):
    ```json
    {
     "scripts": {
       "dev": "next dev"
-    },
+    }
    }
    ```
    *Property* tersebut akan memberikan kita perintah untuk 
