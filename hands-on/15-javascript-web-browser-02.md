@@ -655,3 +655,8 @@ ada.
   - Lalu berikut dapat dilakukan konversi .shp yang sudah memiliki
   CRS EPSG:4236 menuju GeoJSON menggunakan program pengolah GIS
   seperti QGIS (gratis) atau ArcGIS (berbayar)
+
+- Tambahkan fitur animasi, sehingga membuat peta yang digambar lebih 
+  hidup. Sebagai contoh: ketika dilakukan *mouse hovering*, warna
+  wilayah kecamatan berubah, atauy lebih besar dan muncul mendekati
+  pembaca.
