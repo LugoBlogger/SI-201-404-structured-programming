@@ -1,0 +1,19 @@
+* {
+  font-family: "IBM Plex Sans", "Helvetica Neue", 
+            Arial, sans-serif;
+}
+
+.subunit.BalikpapanBarat { fill: #537c78; }
+.subunit.BalikpapanUtara { fill: #7ba591; }
+.subunit.BalikpapanSelatan { fill: #cc222b; }
+.subunit.BalikpapanTengah { fill: #f15b4c; }
+.subunit.BalikpapanKota { fill: #faa41b; }
+.subunit.BalikpapanTimur { fill: #ffd45b; }
+
+.subunit-label {
+  fill: #332519;
+  fill-opacity: .5;
+  font-size: 8px;
+  font-weight: 300;
+  text-anchor: middle;
+}
