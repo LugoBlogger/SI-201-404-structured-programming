@@ -281,7 +281,7 @@ Beberapa hal yang akan kita pelajari di sesi ini adalah:
    // Berikut adalah fungsi untuk menggambarkan kegiatan makan
    function angkatSendok(n) {
      for (let i = 0; i < n; i++>) {
-       console.log(`menangangkat sendork yang ke-${i+1} kali`);
+       console.log(`mengangkat sendok yang ke-${i+1} kali`);
      }
    }
 
