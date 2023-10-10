@@ -76,7 +76,7 @@ kedua bisa langsung dijalankan tanpa perlu melakukan *request* oleh program kedu
 ini.
 
 Bisa dikatakan, program pertama tetap berjalan di *background* sembari
-kita bisa menjalankan program kedua. Kemapuan seperti ini sangatlah diperlukan
+kita bisa menjalankan program kedua. Kemampuan seperti ini sangatlah diperlukan
 misal kita ingin menunggu input dari user dan melakukan suatu aksi ketika user
 melakukan suatu input ke dalam program kita. Mirip seperti while loop
 yang akan terhenti jika ada user input namun kita disini membiarkan 
@@ -152,7 +152,7 @@ menjadi lebih elegan menggunakan objek *Promise*.
 <img src="../img-resources/pimp-my-ride-meme-callbacks.jpeg" width=600>
 
 <br/>
-<br/>
+
 Untuk contoh terakhir, program terdiri dari tiga berkas yaitu 
 `events-demo.html`, `events-demo.css`, dan `events-demo.js`.
 Program ini akan memberikan kita tampilan di berkas `.html`

@@ -51,7 +51,7 @@ method `.then(callbackFunc)` yang tersedia dalam Promise object
 Sintaks dari penulisan Promise object:
 ```js
 p1(arg1)
-  .then(callbackFunci)
+  .then(callbackFunc1)
   .then(callbackFunc2)
   .catch(callbackErrorHandler)
 ```
@@ -158,7 +158,7 @@ Perhatikan contoh di atas bahwa program dimulai dijalankan
 dari bagian `let p1 = fetch(url)` dan Promise object akan diteruskan
 ke pemanggilan callback `.then(c1)` 
 berikutnya ke pemanggilan callback `.then(c2)`.
-Apabila terjadi error di tengah jalan, callback `c3`.
+Apabila terjadi error di tengah jalan, callback `c3` dipanggil.
 
 Diagram waktu untuk proses ini cukup rumit, namun dapat
 digambarkan sebagai berikut. Pada pertemuan kuliah akan dijelaskan 
@@ -177,10 +177,10 @@ Keyword pertama yaitu `await` digunakan untuk mengubah suatu
 Prmise object menuju dan menunggu (*wait*) keadaan *settled*.
 Di dalam Promise object dikenal empat macam keadaan yaitu:
 
-- fulfilled
-- rejected
-- settled
-- resolved
+- _fulfilled_
+- _rejected_
+- _settled_
+- _resolved
 
 Ke-empat *state* dari Promise object tersebut akan dijelaskan lebih lanjut
 dalam perkuliahan. 
