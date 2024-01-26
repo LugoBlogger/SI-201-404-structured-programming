@@ -1,0 +1,1 @@
+let hello = 1; let world = 5; console.log(hello, world);

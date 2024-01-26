@@ -1,7 +1,7 @@
-# Modul praktikum - Minggu 12 - *Asynchronous Programming in JavaScript* (bagian 1)
+# Modul praktikum - Minggu 13 - *Asynchronous Programming in JavaScript* (bagian 1)
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
-Asisten mata kuliah: **Feriyanto - (10191031)**
+Asisten mata kuliah: **Jein Ananda - (10221031)**; **Muhammad Aulia Rahman - (10221055)**
 
 **Tujuan**:
 - Mampu mengerti gagasan dasar *asynchronous programming*

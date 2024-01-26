@@ -1,5 +1,8 @@
 courseid_2651_participants.json
+package-lock.json
+package.json
 
 img-resources/*.drawio
 img-resources/*.dtmp
 img-resources/*.bkp
+node_modules

@@ -1,7 +1,7 @@
-# Modul praktikum - Minggu 05 - *Statements*
+# Modul praktikum - Minggu 06 - *Statements*
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
-Asisten mata kuliah: **Feriyanto - (10191031)**
+Asisten mata kuliah: **Jein Ananda - (10221031)**; **Muhammad Aulia Rahman - (10221055)**
 
 **Tujuan**:
 - Mampu memahami *statements* dasar yang dimiliki oleh JavaScript.

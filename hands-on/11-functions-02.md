@@ -1,7 +1,7 @@
-# Modul praktikum - Minggu 10 - *Functions* bagian 2
+# Modul praktikum - Minggu 11 - *Functions* bagian 2
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
-Asisten mata kuliah: **Feriyanto - (10191031)**
+Asisten mata kuliah: **Jein Ananda - (10221031)**; **Muhammad Aulia Rahman - (10221055)**
 
 **Tujuan**:
 - Mampu memahami *parameters* dan *arguments* dari suatu fungsi

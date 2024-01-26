@@ -1,7 +1,7 @@
-# Modul praktikum - Minggu 01 - Pengantar
+# Modul praktikum - Minggu 02 - Pengantar
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
-Asisten mata kuliah: **Feriyanto - (10191031)**
+Asisten mata kuliah: **Jein Ananda - (10221031)**; **Muhammad Aulia Rahman - (10221055)**
 
 **Tujuan**: 
 - Mampu menjalankan program JavaScript di *browser* maupun di Node.js.
@@ -111,34 +111,37 @@ instalasi VSCode.
 
 ## Instalasi `Node.js`
 
-Untuk `Node.js` yang digunakan adalah versi LTS (Long-Term Support) 18.13.0
-yang ter-*update* sampai bulan Januari 2023. Versi `Node.js` ini harus
+Untuk `Node.js` yang digunakan adalah versi LTS (Long-Term Support) 20.11.0
+yang ter-*update* sampai bulan Januari 2024. Versi `Node.js` ini harus
 di-instal dengan versi NPM (Node Package Manager) yang bersesuaian 
-yaitu versi 8.19.3.
+yaitu versi 10.2.4.
 
 Agar bisa menggunakan berbagai versi `Node.js`, maka diperlukan NVM 
-(Node Version Manager). Versi yang akan kita gunakan adalah versi 0.39.3
-yang ter-*update* hingga Januari 2023.
+(Node Version Manager). Versi yang akan kita gunakan adalah versi 1.1.12
+yang ter-*update* hingga November 2023.
 
 Tahapan instalasi `Node.js` untuk Window tidak sederhana, namun panduannya bisa
 diikuti dari 
 1. [NVM for Windows](https://github.com/coreybutler/nvm-windows/wiki#manual-installation). 
 2. [Install NodeJS on Windows](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows)
 
+Catatan: Setelah instalasi untuk dilakukan restart supaya dapat menjalankan
+perintah `node` di PowerShell.
+
 Perlu diingat NVM for Windows sangat berbeda dengan
 NVM yang ada untuk Mac dan Linux. Saya menyarankan untuk mengikuti panduan 
 nomor 2, meskipun sebenarnya kedua panduan melakukan instalasi file yang sama.
 
 Untuk tahapan instalasi Linux atau Mac sangat mudah, tinggal mengetikan baris- baris perintah berikut di Terminal
-```bash
-# Unduh dan jalankan script untuk menginstall NVM versi 0.39.3
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+```sh
+# Unduh dan jalankan script untuk menginstall NVM versi 0.39.7
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 # Untuk memverifikasi proses instalasi
 nvm -v 
 
-# Install node.js dan NPM yang bersesuain dengan versi node js 18.13.0
-nvm install 18.13.0
+# Install node.js dan NPM yang bersesuain dengan versi node js 20.11.0 
+nvm install 20.11.0
 ```
 
 ## Menjalankan kode JavaScript di Node.js
@@ -200,5 +203,4 @@ perlu di-install VSCode extension: [**Markdown Preview Github Styling**](https:/
     randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     console.log(randomQuote);
     ``` 
-    Selanjutnya apakah yang terjadi jika secara terus menerus hanya menjalankan dua baris
-    terakhir?
+    Selanjutnya apakah yang terjadi jika secara terus menerus hanya menjalankan dua baris terakhir?

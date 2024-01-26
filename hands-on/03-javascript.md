@@ -1,7 +1,7 @@
-# Modul praktikum - Minggu 02 - Struktur leksikal
+# Modul praktikum - Minggu 03 - Struktur leksikal
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
-Asisten mata kuliah: **Feriyanto - (10191031)**
+Asisten mata kuliah: **Jein Ananda - (10221031)**; **Muhammad Aulia Rahman - (10221055)**
 
 **Tujuan**: 
 - Mampu memahami struktur leksikal dalam bahasa pemrograman JavaScript.
@@ -109,7 +109,7 @@ jalannya program yang dia buat.
   *class*, dan label untuk iterasi dalam perulangan.   
   *Identifier* dalam JavaScript harus diawali oleh suatu huruf (bukan angka),
   garis bawah (*underscore*) atau tanda dollar (*dollar sign*).
-  Huruf kedua dan selanjutnya boleh angka, garish bawah, atau tanda dollar.   
+  Huruf kedua dan selanjutnya boleh angka, garis bawah, atau tanda dollar.   
   **identifiers-reserved.js**
   ```js
     // Berikut ini adalah identifier yang legal
@@ -127,7 +127,7 @@ jalannya program yang dia buat.
   untuk menamakan beberapa prosedur dan tidak bisa digunakan untuk 
   penamaan variable. Berikut adalah daftar *reserved words* yang umum digunakan
   oleh JavaScript.
-  ```
+  ```js
     as          const       export    get         null      target      void
     async       continue    extends   if          of        this        while
     await       debugger    false     import      return    throw       with
@@ -183,8 +183,11 @@ Kode di atas setara dengan satu baris kode berikut:
 
 
 ## Tugas
-- Silahkan untuk membentuk kelompok tugas besas (*final project*) 
-  minimal 4 orang, maksimal 5 orang. 
-  Anggota silahkan dibentuk sendiri. Beri nama kelompok 
-  berdasarkan nama karakter anime yang kalian suka (😀). 
-  Daftar nama kelompok dikumpulkan di pertemuan praktikum berikutnya.
+- Silahkan berdiskusi untuk proyek tugas akhir yang ingin kalian dengan
+  anggota satu kelompok. Tugas ini tidak perlu dikumpul cukup 
+  membuat progress di Google Sheet tiap minggu apa saja yang dikerjakan
+  untuk mencapai penyelesaian final project.
+  
+  
+  
+  

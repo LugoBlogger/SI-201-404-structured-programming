@@ -1,7 +1,7 @@
-# Modul praktikum - Minggu 11 - *JavaScript Standard Library*
+# Modul praktikum - Minggu 12 - *JavaScript Standard Library*
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
-Asisten mata kuliah: **Feriyanto - (10191031)**
+Asisten mata kuliah: **Jein Ananda - (10221031)**; **Muhammad Aulia Rahman - (10221055)**
 
 **Tujuan**:
 - Mampu memahami beberapa *standard library* dalam JavaScript
