@@ -185,8 +185,8 @@ Kode di atas setara dengan satu baris kode berikut:
 ## Tugas
 - Silahkan berdiskusi untuk proyek tugas akhir yang ingin kalian dengan
   anggota satu kelompok. Tugas ini tidak perlu dikumpul cukup 
-  membuat progress di Google Sheet tiap minggu apa saja yang dikerjakan
-  untuk mencapai penyelesaian final project.
+  membuat progress di Google Sheet (format bebas) tiap minggu apa saja 
+  yang dikerjakan untuk mencapai penyelesaian final project.
   
   
   
