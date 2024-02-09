@@ -6,3 +6,5 @@ img-resources/*.drawio
 img-resources/*.dtmp
 img-resources/*.bkp
 node_modules
+
+assignments/assignment01.js
