@@ -29,33 +29,35 @@ Maksud fleksibel disini adalah kita dapat memanipulasi nilai, mengubah
 satu *type* ke *type* yang lain.
 
 Proses pengubahan nilai (*value*) dan *type* ini didukung dengan 
-kemampuan *variables* di dalam JavaScript. Variable adalah suatu nama yang
-menunjuk kepada suatu nilai yang nilainya dapat kita ubah-ubah. Proses modifikasi
-yang fleksibel ini (yang hampir dimiliki oleh berbagai macam bahasa pemrograman) 
+kemampuan *variables* di dalam JavaScript. _Variable_ adalah suatu nama yang
+menunjuk kepada suatu nilai yang nilainya dapat kita ubah-ubah. 
+Pada pertemuan sebelumnya kita telah belajar mengenai bagaimana penggunaan
+_identifier_ untuk menamakan _variable_. Proses modifikasi
+yang fleksibel ini (yang hampir dimiliki oleh berbagai macam bahasa pemrograman) yanng dimiliki oleh _variable_
 membuat JavaScript dapat digunakan hampir di segala permasalahan komputasi.
 
 Beberapa topik yang akan kita kaji dalam sesi praktikum ini adalah:
 
 - Beberapa istilah penting dalam *types*
-- *Type*: Numbers 
-- *Type*: Text 
-- *Type*: Boolean
+- *Type*: `Numbers`
+- *Type*: `Text`
+- *Type*: `Boolean`
 - *Special type*: `null` and `undefined`
-- *Type*: Symbols
+- *Type*: `Symbols`
 - *Value*: Global object
-- Type conversions
-- Variable declaration and assignment
+- *Type conversions*
+- *Variable declaration and assignment*
 
 
 ## Beberapa istilah penting dalam *types*
 
 *Type* dalam JavaScript dapat dibagi menjadi dua kategori:
-- primitive types: numbers, strings of text, boolean, 
-- object types: selain primitive types
+- _primitive types_: numbers, strings of text, boolean, 
+- _object types_: selain primitive types
 
-Demikian pula untuk *values* dalam JavaScript terdapat dua kategor:
-- primitive values: numbers, string, boolean, symbol, `null`, `undefined`
-- object values: (biasanya disebut object) selain primitive values
+Demikian pula untuk *values* dalam JavaScript terdapat dua kategori:
+- _primitive values_: numbers, string, boolean, symbol, `null`, `undefined`
+- _object values_: (biasanya disebut object) selain primitive values
 
 Contoh object: `Object`, `Array`, `Set`, `Map`, `RegExp`, `Date`, `Error`,
 `Function`
@@ -129,8 +131,9 @@ JavaScript.
                       // tidak mengubah nilai
   console.log(a, b, c);
 
-  let d = 0xff;       // => 255: (15*16 + 16*1)
-  let e = 0x15EC41;   // => 1436737: 
+  let d = 0xff;       // => 255: (f*16^1 + f*16^0) = (16*16 + 16*1)
+  let e = 0x15EC41;   // => 1436737: (1*16^5 + 5*16^4 + E*16^3 + C*16^2 + 4*16^1 + 1*16^0)
+                      //             = (1*16^5 + 5*16^4 + 14*16^3 + 12*16^2 + 4*16 + 1*1)
   console.log(d, e);
 
   let f = 0b10101;    // => 21: (1*16 + 0*8 + 1*4 + 0*2 + 1*1)
@@ -147,7 +150,7 @@ JavaScript.
   let a = 3.14;
   let b = 2345.6789;
   let c = .333_333_333_333_333_333    // tanda garis bawah hanya pemisah
-                                      // tidak emngubah nilai
+                                      // tidak mengubah nilai
   let f = 6.02e23;        // 6.02 × 10²³
   let g = 1.473822E-32    // 1.4738223 × 10⁻³²
 
@@ -457,11 +460,23 @@ console.log(a === b);
 > 1. (Jawaban nomor 1)
 > 2. (Jawaban nomor 2)
 
+<!--
 1. Carilah satu demo program dari internet menggunakan JavaScript yang 
    masih menggunakan topik dari minggu ke-1 hingga praktikum minggu ke-3.
    (Diperbolehkan membuat program sendiri apabila tidak dapat menemukan di 
    internet). Jelaskan proses program tersebut berjalan berdasarkan pemahaman
    yang telah kalian pelajari.
+--->
+
+1. Jelaskan yang membuat salah atau benar dari dari program berikut?
+   ```js
+   let a = 0.1
+   let b = 0.2;
+   let large_numbers = 9_007_199_254_740_992;
+   console.log(a + b === 0.3);
+   console.log(large_numbers + 1 === large_numbers);
+   console.log(large_numbers + 2 === 9_007_199_254_740_992);
+   ```
 
 2. Jelaskan perbedaan hasil dua baris terakhir dalam program berikut:
    ```js
