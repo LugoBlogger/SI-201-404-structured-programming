@@ -379,7 +379,7 @@ Pertama kita buat terlebih dahulu *working directory* sebagai berikut:
 ...
 ```
 Untuk data `balikpapan.geojson` dapat didownload 
-[disini](./week-15-scripts/datasets/balikpapan.geojson).
+[disini](./week-16-scripts/datasets/balikpapan.geojson).
 
 Sama seperti pada bagian sebelumnya, kita buat terlebih dahulu
 kerangka awal untuk program plotting map di `plotd3.js`.
