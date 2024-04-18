@@ -524,7 +524,7 @@ terkait *regular expression* yaitu:
      dapat dinyatakan dalam `\u7570\u4e16\u754c`.
      
 
-7. Assertion
+7. Assertion    
    *Assertion* merupakan karakter yang digunakan untuk menyatakan
    bahwa
    *pattern matching* mengacu (*anchoring*) ke posisi tertentu
