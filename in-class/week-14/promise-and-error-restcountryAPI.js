@@ -62,3 +62,8 @@ let p1 = fetch(url)
   .then(c1)
   .then(c2)
   .catch(c3);
+
+// let p1 = fetch(url);
+// let p2 = p1.then(c1);
+// let p3 = p2.then(c2);
+// p3.catch(c3)
