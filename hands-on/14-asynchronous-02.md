@@ -86,7 +86,7 @@ Pada program ini kita menggunakan restcountry API yang menyediakan
 beberapa data-data umum terkait negara-negara di dunia. Dan kita
 akan mencetak GINI indeks untup tiap negara.
 
-**promise-and-error.js**
+**promise-and-error-restcountryAPI.js**
 ```js
 // Fetch A JSON api to demonstrate .catch
 
@@ -154,11 +154,11 @@ let p1 = fetch(url)
   .catch(c3);
 ```
 
-Perhatikan contoh di atas bahwa program dimulai dijalankan 
+Perhatikan contoh di atas bahwa program mulai dijalankan 
 dari bagian `let p1 = fetch(url)` dan Promise object akan diteruskan
 ke pemanggilan callback `.then(c1)` 
 berikutnya ke pemanggilan callback `.then(c2)`.
-Apabila terjadi error di tengah jalan, callback `c3` dipanggil.
+Apabila terjadi error di tengah jalan, callback `c3` akan dipanggil.
 
 Diagram waktu untuk proses ini cukup rumit, namun dapat
 digambarkan sebagai berikut. Pada pertemuan kuliah akan dijelaskan 
@@ -167,32 +167,51 @@ kembali.
 <img src="../img-resources/promise-and-error-timeline.png" width=600>
 
 
-## `await` dan `async`
+## `await` dan `async`  
 
-Merupakan dua bua keyword yang cukup penting dan akan sering dijumpai
+Merupakan dua buah _keyword_ yang cukup penting dan akan sering dijumpai
 ketika bekerja dengan program JavaScript yang memiliki fitur
-interaktif. 
+interaktif artinya ada interaksi antara user dengan aplikasi atau _trigger_ lain 
+yang mengakibatkan suatu proses dijalankan. 
 
-Keyword pertama yaitu `await` digunakan untuk mengubah suatu 
-Prmise object menuju dan menunggu (*wait*) keadaan *settled*.
-Di dalam Promise object dikenal empat macam keadaan yaitu:
+_Keyword_ pertama yaitu `await` digunakan supaya suatu keadaan di  
+Promise object menjadi keadaan *settled*.
+Di dalam Promise object dikenal tiga macam keadaan yaitu:
 
-- _fulfilled_
-- _rejected_
-- _settled_
-- _resolved
+- _pending_: Suatu objek Promise yang sedang dalam proses eksekusi.
+- _fulfilled_: Suatu objek Promise yang telah menyelesaikan eksekusinya dan 
+               telah memberikan suatu _output_ nilai.
+- _rejected_: Suatu objek Promise yang mengalami suatu _error_ atau masalah di 
+              dalam proses eksekusinya, sehingga akan memberikan nilai _output_ 
+              berupa objek _error_.
 
-Ke-empat *state* dari Promise object tersebut akan dijelaskan lebih lanjut
-dalam perkuliahan. 
+Selain tiga macam keadaan tersebut, ada beberapa tambahan istilah yang sering  
+digunakan dalam objek Promise: 
+- _settled_: Suatu objek Promise yang berada pada keadaan _fulfilled_ atau 
+             _rejected_.
+ - _resolved_: Suatu objek Promise yang berada pada keadaan _pending_ dan
+ keadaan _settled_ atau tidaknya dipengaruhi oleh objek Promise lain berada
+ pada keadaan _settled_ atau tidak. 
 
+Ke-empat istilah di dalam objek Promise tersebut lebih mudah dimengerti dengan   
+diagram berikut   
+
+<img src="../img-resources/four-states-of-promise-object.png" width=600>
+
+Untuk _resolved_, silahkan dilihat pada gambar sebelumnya.
 
 Keyword kedua adalah `async`. Keyword ini adalah pelengkap dari penggunaan
 keyword `await`. Karena dalam aturan penggunaan `await`, apabila
-`await` digunakan dalam suatu deklarasi di dalam suatu fungsi lain,
-maka fungsi *parent* tersebut harusnya fungsi asinkronus yang dideklarasikan
-dengan `async` keyword. 
+`await` digunakan di dalam deklarasi atau _body of function_ suatu fungsi lain (
+kita sebut fungsi lain ini fungsi _parent_),
+maka fungsi *parent* tersebut harus di-set supaya menjadi fungsi asinkronus 
+dengan cara menambahkan `async` keyword di depan deklarasi fungsi _parent_ 
+tersebut. 
 
-Berikut contoh penggunaan `await` dan `async`
+Berikut contoh penggunaan `await` dan `async`. Kita lihat fungsi `fetchData()` 
+dan `main()` memuat keywords `await` di dalam _body of function_ (`await delay(2000)` 
+dan `await fetchData()` berturut-turut). Secara aturan kedua fungsi _parents_
+ini harus di awali `async` keyword supaya berjalan sebagaimana mestinya.
 
 **await-and-async.js**
 ```js
@@ -220,6 +239,9 @@ async function main() {
 // Calling the main function
 main();
 ```
+
+Dari contoh di atas, apabila keyword `async` dan `await` dihilangkan maka 
+`delay(2000)` akan dijalankan di tahapan terakhir.
 
 
 ## Tugas (Exercise - 10)
