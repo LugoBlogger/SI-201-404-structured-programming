@@ -1,0 +1,20 @@
+<html lang="en">
+  <title>Demonstration of plotly and d3.js</title>
+  <head>
+    <link rel="stylesheet" href="./viz.css">
+    <script src="./lib/plotly-2.20.0.min.js"></script>
+    <script src="./lib/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <h1>Output</h1>
+    <label for="file-selector">
+      Please load driving.csv file
+    </label><br>  
+    <input type="file" id="file-selector" 
+           multiple accept=".json, .dat, .csv">
+    <div>
+      <div id="tester"></div>
+    </div>
+    <script src="./viz.js"></script>
+  </body>
+</html>

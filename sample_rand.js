@@ -4,10 +4,11 @@
 let sample = require("@stdlib/random/sample")
 
 let sample_factory = sample.factory(
-  {"seed": 24_01_24});
+  {"seed": 24_05_13});
 
-let arr = [1, 2, 3, 4, 5];
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let output = sample_factory(
-  arr, {"size": 20});
+  // arr, {"size": 20});
+  arr, {replace: false} );
 
 console.log(output);
