@@ -1,7 +1,7 @@
 # Modul praktikum - Minggu 16 - JavaScript dalam Web Browser (bagian 2)
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
-Asisten mata kuliah: **Jein Ananda - (10221031)**; **Muhammad Aulia Rahman - (10221055)**
+Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**
 
 **Tujuan**:
 - Mampu menerapakan pemahaman JavaScript ke dalam aplikasi berbasis
@@ -347,6 +347,8 @@ dari awal, kita bisa mengunjungi laman berikut untuk
 menelusuri tata cara penggambaran grafik di 
 [D3.js Graph Gallery](https://d3-graph-gallery.com/index.html)
 yang dibuat oleh Holtz Yan.
+
+
 ## Making Balikpapan Administration District Map
 
 Bagian ini adalah bagian terakhir dari tutorial mata kuliah

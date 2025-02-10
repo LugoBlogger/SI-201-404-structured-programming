@@ -1,7 +1,7 @@
 # Modul praktikum - Minggu 15 - *JavaScript in Web Browser* (bagian 1)
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
-Asisten mata kuliah: **Jein Ananda - (10221031)**; **Muhammad Aulia Rahman - (10221055)**
+Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**
 
 **Tujuan**:
 - Mampu memmbuat aplikasi menggunakan JavaScript

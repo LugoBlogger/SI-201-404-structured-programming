@@ -1,7 +1,7 @@
 # Modul praktikum - Minggu 05 - *Expressions and Operators*
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
-Asisten mata kuliah: **Jein Ananda - (10221031)**; **Muhammad Aulia Rahman - (10221055)**
+Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**
 
 **Tujuan**:
 - Mampu memahami ekspresi dalam program JavaScript.
@@ -382,5 +382,5 @@ akan kalian kerjakan usahakan sesuai kemampuan kalian. Jika memungkinkan
 waktu, tenaga, dan *human resources*, maka silahkan untuk membuat proyek
 yang lebih sulit. Pastikan proyek yang akan kalian kerjakan dapat diselesaikan
 sebelum minggu ke-16. Ide proyek boleh lebih dari satu. Tautan Google Sheet
-akan dibagikan untuk diisi. Boleh didiskusikan dengan assiten atau dosen 
+akan dibagikan untuk diisi. Boleh didiskusikan dengan asisten atau dosen 
 pengampu mata kuliah.

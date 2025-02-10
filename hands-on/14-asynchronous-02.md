@@ -1,7 +1,7 @@
 # Modul praktikum - Minggu 14 - *Asynchronous Programming in JavaScript* (bagian 2)
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
-Asisten mata kuliah: **Jein Ananda - (10221031)**; **Muhammad Aulia Rahman - (10221055)**
+Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**
 
 **Tujuan**:
 - Mampu mengerti gagasan dasar *asynchronous programming*
@@ -30,7 +30,7 @@ Beberapa subtopik yang akan kita bahas adalah
 - Contoh program menggunakan Promise
 - Penggunaan `async` dan `await`
 
-## Pengenalan tentan Promise
+## Pengenalan tentang Promise
 
 Objek Promise, adalah suatu objek khusus yang menangani manajemen fungsi
 yang memiliki perilaku asinkronus. Perilaku asinkronus disini artinya
