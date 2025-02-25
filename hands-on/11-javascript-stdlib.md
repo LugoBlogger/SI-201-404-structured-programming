@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 12 - *JavaScript Standard Library*
+# Modul praktikum - Minggu 11 - *JavaScript Standard Library*
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**

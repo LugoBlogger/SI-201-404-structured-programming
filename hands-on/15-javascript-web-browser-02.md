@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 16 - JavaScript dalam Web Browser (bagian 2)
+# Modul praktikum - Minggu 15 - JavaScript dalam Web Browser (bagian 2)
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**
@@ -84,7 +84,14 @@ akan terlihat seperti berikut:
 
 Pada contoh di atas terdapat tambahan folder `lib` yang merupakan tempat 
 *library* d3.js. File `d3.v7.min.js` dapat didownload di 
-[link berikut](https://d3js.org/d3.v7.min.js) (Klik kanan lalu pilih "Save as...")
+[link berikut](https://d3js.org/d3.v7.min.js) (Klik kanan lalu pilih "Save as..."),
+
+Sedikit penjelasan terkait library d3.js ini terdapat dua jenis
+berkas: (1) _non-minified_ (`d3.v7.js`) dan 
+(2) _minified_ (`d3.v7.min.js`). Gunakan _non-minified_ untuk
+tahap _debugging_, dan _minified_ untuk tahap _production_
+supaya mendapatkan kinerja visualiasi yang lebih cepat.
+Untuk lebih jelas dapat dilihat di ["D3 in vanilla HTML"](https://d3js.org/getting-started#d3-in-vanilla-html)
 
 Berikutnya kita akan membuat versi "Hello World!" untuk d3.js
 (file keseluruhan dapat dilihat di dalam direktori 

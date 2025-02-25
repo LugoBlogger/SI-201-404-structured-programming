@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 02 - Pengantar
+# Modul praktikum - Minggu 01 - Pengantar
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**

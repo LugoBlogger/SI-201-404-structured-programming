@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 09 - *Arrays*
+# Modul praktikum - Minggu 07 - *Arrays*
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**

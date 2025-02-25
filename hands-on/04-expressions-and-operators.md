@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 05 - *Expressions and Operators*
+# Modul praktikum - Minggu 04 - *Expressions and Operators*
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**

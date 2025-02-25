@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 04 - *Types, Values, and Variables*
+# Modul praktikum - Minggu 03 - *Types, Values, and Variables*
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**

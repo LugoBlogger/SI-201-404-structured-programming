@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 03 - Struktur leksikal
+# Modul praktikum - Minggu 02 - Struktur leksikal
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**

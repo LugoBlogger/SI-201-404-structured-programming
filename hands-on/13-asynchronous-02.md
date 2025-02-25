@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 14 - *Asynchronous Programming in JavaScript* (bagian 2)
+# Modul praktikum - Minggu 13 - *Asynchronous Programming in JavaScript* (bagian 2)
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**

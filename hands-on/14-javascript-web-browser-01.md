@@ -1,4 +1,4 @@
-# Modul praktikum - Minggu 15 - *JavaScript in Web Browser* (bagian 1)
+# Modul praktikum - Minggu 14 - *JavaScript in Web Browser* (bagian 1)
 
 Dosen pengampu: **Henokh Lugo Hariyanto**  
 Asisten mata kuliah: **Dahayu Azhka Daeshawnda - (10231027)**; **Dyno Fadhillah Ramadhani- (10231033)**
