@@ -38,6 +38,7 @@ kode JavaScript
 ## *Case sentivity*, *spaces*, dan *line breaks*
 
 - Huruf besar kecil menentukan pembeda antara nama variables:    
+
   **case-sensitive.js**
   ```js
     let Hello = 1;
@@ -49,6 +50,7 @@ kode JavaScript
 
 - Spasi antara token (nama variable, tanda operator dan nilai variable)
   dapat diabaikan   
+
   **ignored-space.js**
   ```js
     let hello=1;
@@ -60,6 +62,7 @@ kode JavaScript
 
 - *Line breaks* dapat diabaikan dalam penulisan kode JavaScript asalkan
   dipisahkan dengan titik koma (*semicolon*)    
+
   **ignored-linebreaks.js**
   ```js
     let hello = 1; world = 5; console.log(hello, world);
@@ -81,7 +84,7 @@ jalannya program yang dia buat.
 
     /*
      * Ini merupakan komentar lebih dari satu baris. Ekstra satu karakter *
-     * diawal bari tidak harus ditulis. Itu ditulis hanya untuk terlihat
+     * diawal baris tidak harus ditulis. Itu ditulis hanya untuk terlihat
      * lebih konsisten dan menarik.
      */
   ```
@@ -92,14 +95,15 @@ jalannya program yang dia buat.
    2 apabila diberikan pada suatu variabel. Berikut beberapa contoh *literals*
    dan penggunaannya. (literal disini diberikan sebagai nilai sebelah
    kanan tanda "=").    
+
   **literals.js**
   ```js
-    let int_num = 12;             // Bilangan bulat dua belas
-    let dec_num = 1.2;            // Bilangan desimal 1.2
+    let int_num = 12;             // b bulat dua belas
+    let dec_num = 1.2;            // bilangan desimal 1.2
     let str_1 = "hello world!";   // string "hello world"
     let str_2 = 'Hi';             // string dengan delimiter tanda petik satu 
-    let bool_1 = true;            // Nilai boolean true
-    let bool_2 = false;           // Nilai boolean false;
+    let bool_1 = true;            // nilai boolean true
+    let bool_2 = false;           // nilai boolean false;
     let null_obj = null;          // nilai untuk ketidakadaan tipe data objek
   ```
 
@@ -110,6 +114,7 @@ jalannya program yang dia buat.
   *Identifier* dalam JavaScript harus diawali oleh suatu huruf (bukan angka),
   garis bawah (*underscore*) atau tanda dollar (*dollar sign*).
   Huruf kedua dan selanjutnya boleh angka, garis bawah, atau tanda dollar.   
+
   **identifiers-reserved.js**
   ```js
     // Berikut ini adalah identifier yang legal
@@ -137,15 +142,22 @@ jalannya program yang dia buat.
     function    new         switch    var
   ```
 
+  Apabila ada kasus kita harus menggunakan *reserved words*, kita dapat
+  mengakalinya dengan cara menambahkan karakter lainnya, 
+  misalnya ingin menggunakan kata `if`, kita bisa menambahkan tanda
+  garis bawah `_if` atau menambahkan tanda dollar `$if`.
+
 
 ## *Unicode*
 Unicode character adalah daftar kode untuk representasi huruf yang lebih luas. Contohnya seperti huruf-huruf jawa, emoji, latin, jepang, mandarin, dst.   
-Di dalam JavaScript dapat menggunakan karakter Unicode sebagai *identifier*, 
-namun tidak disarankan secara *programming convention* untuk urusan portability,
+Dalam menuliskan bahasa JavaScript, kita dapat menggunakan karakter Unicode 
+sebagai *identifier*, 
+namun tidak disarankan secara *programming convention* untuk urusan _portability_,
 artinya program diusahakan sebisa mungkin dapat dipahami oleh banyak orang
 dengan berbagai latar belakang bahasa dan abjad yang digunakan. 
 Namun untuk nilai dari *identifiers* boleh menggunakan karakter Unicode;
 Berikut contoh penggunaan Unicode:      
+
 **unicode.js**
 ```js
   const π = 3.14;
@@ -164,8 +176,9 @@ Berikut contoh penggunaan Unicode:
 ## *Optional semicolons*
 Pada bagian pertama, kita sudah membahas bahwa kita dapat mengabaikan
 *line breaks* dengan cara menggunakan titik koma (*semicolon*).  
-Namun kita sebenarnya dapat juga sebaliknya mengabaikan *semicolon*, 
-namun kita perlu menambahkan *line breaks*. Sebagai contoh:
+Disisi lain kita juga dapat mengabaikan *semicolon*, 
+namun sebagai gantinya, kita perlu menambahkan *line breaks*. Berikut adalah 
+contohnya:
 
 **ignored-semicolon.js**
 ```js
@@ -183,11 +196,31 @@ Kode di atas setara dengan satu baris kode berikut:
 
 
 ## Tugas
-- Silahkan berdiskusi untuk proyek tugas akhir yang ingin kalian dengan
-  anggota satu kelompok. Tugas ini tidak perlu dikumpul cukup 
-  membuat progress di Google Sheet (format bebas) tiap minggu apa saja 
-  yang dikerjakan untuk mencapai penyelesaian final project.
-  
+- Silahkan untuk mengeksplorasi secara mandiri terkait proyek-proyek yang
+  dapat dibuat menggunakan JavaScript. Carilah minimal 10 ide program yang
+  menarik. Tugas ini tidak dikumpulkan tapi berguna untuk penyelesaian
+  _final project_. Berikut contoh ide yang menarik dan berguna yang
+  mungkin bisa menjadi inspirasi
+  - Membuat aplikasi untuk memotong, mengedit, menyatukan PDF dan melakukan
+    kompresi. Contoh: [PDF4QT](https://jakubmelka.github.io/), 
+    [pdfarranger](https://github.com/pdfarranger/pdfarranger), dan
+    [PDFsam](https://pdfsam.org/download-pdfsam-basic/).
+  - Membuat _educational game_ untuk mata kuliah yang sulit.  
+    Contoh: https://brilliant.org/.
+  - Membuat _game_ yang menarik. Silahkan mengeksplorasi https://itch.io/
+    dan carilah _game_ dengan rating dan _download count_ yang tinggi.
+  - Membuat _dashboard_ untuk data visualization. 
+    Contoh: https://observablehq.com/explore
+  - Membuat aplikasi yang meningkatkan efisiensi kerja seperti 
+    _automatic attendance record_, _data scraping_, _script automation_, dll.
+  - Membuat aplikasi pemantau parkiran kampus menggunakan CCTV.
+  - Membuat aplikasi ramalan cuaca akurat 1 jam kedepan menggunakan data satelit. 
+    Aplikasi ini berguna untuk mahasiswa atau pekerja yang menggunakan
+    sepeda motor dalam perjalanan jauh menuju kampus atau tempat kerja dari rumah
+  - Membuat aplikasi _personal budgeting_ untuk memantau pengeluaran
+    dan pemasukan secara efisien. 
+
+
   
   
   
