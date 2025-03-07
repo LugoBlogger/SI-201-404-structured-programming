@@ -448,42 +448,45 @@ dan setiap cara tersebut berguna untuk kasus-kasus tertentu
    - Kartu wajik dengan ukuran 1
    ```
    #---#
-   | * |
+   | ♦︎ |
    #---#
    ```
 
    - Kartu wajik dengan ukuran 2
    ```
    #-----#
-   |  *  |
-   | *** |
-   |  *  |
+   |  ♦︎  |
+   | ♦︎ ♦︎ |
+   |  ♦︎  |
    #-----#
    ```
 
    - Kartu wajik dengan ukuran 3
    ```
    #-------#
-   |   *   |
-   |  ***  |
-   | ***** |
-   |  ***  |
-   |   *   |
+   |   ♦︎   |
+   |  ♦︎ ♦︎  |
+   | ♦︎   ♦︎ |
+   |  ♦︎ ♦︎  |
+   |   ♦︎   |
    #-------#
    ```
 
    - Kartu wajik dengan ukuran 4 
    ```
    #---------#
-   |    *    |
-   |   ***   |
-   |  *****  |
-   | ******* |
-   |  *****  |
-   |   ***   |
-   |    *    |
+   |    ♦︎    |
+   |   ♦︎ ♦︎   |
+   |  ♦︎   ♦︎  |
+   | ♦︎     ♦︎ |
+   |  ♦︎   ♦︎  |
+   |   ♦︎ ♦︎   |
+   |    ♦︎    |
    #---------#
    ```
+
+   Pertanyaan tambahan, bisakah kita mendesain hal yang serupa untuk 
+   _spade_, _heart_ dan _clover_? Jelaskan.
 
    Petunjuk: 
    - Gunakan *package* `prompt-sync` sehingga *user* dapat memberikan input 

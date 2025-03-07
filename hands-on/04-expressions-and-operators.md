@@ -376,6 +376,7 @@ Ada beberapa operator-operator yang lain yang perlu kita ketahui.
   ```
 
 ## Tugas 
+<!--
 Carilah topik *final project* yang akan kalian kerjakan. Paling lambat
 sebelum UTS sudah mendapat ide untuk mengerjakan apa. Topik atau proyek yang
 akan kalian kerjakan usahakan sesuai kemampuan kalian. Jika memungkinkan
@@ -384,3 +385,13 @@ yang lebih sulit. Pastikan proyek yang akan kalian kerjakan dapat diselesaikan
 sebelum minggu ke-16. Ide proyek boleh lebih dari satu. Tautan Google Sheet
 akan dibagikan untuk diisi. Boleh didiskusikan dengan asisten atau dosen 
 pengampu mata kuliah.
+-->
+
+**Note**: Tugas berikut tidak dikumpulkan. Namun tugas ini penting sebagai 
+latihan mandiri.      
+
+Dari 10 ide yang telah kalian susun di pertemuan 02. Buatlah tabel perbandingan 
+berdasarkan waktu, *human resources*, tools yang digunakan, sumber referensi 
+yang dicontoh, dan selisih tingkat kemampuan sekarang dan kemampuan yang 
+harus dicapai untuk menyelesaikan ide tugas besar tersebut. 
+Dari tabel tersebut, pilihlah 5 ide terbaik yang mungkin bisa diajukan sebagai tugas besar setelah pembagian kelompok setelah UTS.
