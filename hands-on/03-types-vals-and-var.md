@@ -33,10 +33,11 @@ kemampuan *variables* di dalam JavaScript. _Variable_ adalah suatu nama yang
 menunjuk kepada suatu nilai yang nilainya dapat kita ubah-ubah. 
 Pada pertemuan sebelumnya kita telah belajar mengenai bagaimana penggunaan
 _identifier_ untuk menamakan _variable_. Proses modifikasi
-yang fleksibel ini (yang hampir dimiliki oleh berbagai macam bahasa pemrograman) yanng dimiliki oleh _variable_
+yang fleksibel ini (yang hampir dimiliki oleh berbagai macam bahasa pemrograman) 
+dan yang dimiliki oleh _variable_,
 membuat JavaScript dapat digunakan hampir di segala permasalahan komputasi.
 
-Beberapa topik yang akan kita kaji dalam sesi praktikum ini adalah:
+Beberapa topik yang akan kita pelajari dalam sesi praktikum ini adalah:
 
 - Beberapa istilah penting dalam *types*
 - *Type*: `Numbers`
@@ -57,7 +58,8 @@ Beberapa topik yang akan kita kaji dalam sesi praktikum ini adalah:
 
 Demikian pula untuk *values* dalam JavaScript terdapat dua kategori:
 - _primitive values_: numbers, string, boolean, symbol, `null`, `undefined`
-- _object values_: (biasanya disebut object) selain primitive values
+- _object values_: (biasanya hanya dinamakan object) semua values selain 
+primitive values
 
 Contoh object: `Object`, `Array`, `Set`, `Map`, `RegExp`, `Date`, `Error`,
 `Function`
@@ -87,10 +89,11 @@ console.log("new Date()", typeof(new Date()));
 console.log("new Error()", typeof(Error()));
 ```
 
-Ada alasan mengapa digunakan reserved keywords `new` untuk objek di atas
+Ada alasan digunakannya _reserved keywords_ `new` untuk objek di atas
 adalah objek harus diinisiasi terlebih dahulu sebelum digunakan 
 (meskipun beberapa objek seperti `Array()`, `RegExp()`, dan `Erro()` 
-tetap menghasilkan keluaran yang sama).
+tetap menghasilkan keluaran yang sama sekalipun tidak kita tambahkan 
+_reserved keywords_ `new`).
 
 <!--
 - Keuntungan memggunakan JavaScript: 
@@ -158,9 +161,9 @@ JavaScript.
   ```
    
 Terdapat *special value* dalam *type: numeric* yaitu `NaN`.
-`NaN` digunakan dalam JavaScript untuk mewakili hasil pembagian angka dengan nol
-,penarikan akar bilangan negatif, dan *parsing* bilangan bulat namun 
-input yang diberikan adalah string.
+`NaN` singkatan dari "Not a Number", digunakan dalam JavaScript untuk mewakili 
+hasil pembagian angka dengan nol, pengambilan akar bilangan negatif, 
+dan *parsing* (pembacaan) bilangan bulat namun input yang diberikan adalah string.
 
 ## Type: Text
 Merupakan tipe *string* yang digunakan untuk mewakili teks.
@@ -171,7 +174,7 @@ Merupakan tipe *string* yang digunakan untuk mewakili teks.
 
   **string-literals.js**
   ```js
-  let a = "";         // String kosong dehgan nol karakter
+  let a = "";         // String kosong dengan nol karakter
   let b = "testing";
   let c = "3.14";           // angka namun dalam bentuk string
   let d = 'name="Hasan"';   // ekspresi dalam string
@@ -188,11 +191,11 @@ Merupakan tipe *string* yang digunakan untuk mewakili teks.
   ```
 
 - *Escape sequences* di *string literals*    
-  Merupakan urutan karakter untuk bisa menggunakan karakter yang telah
-  digunakan oleh JavaScript. Sebagai contoh 
-  seperti halnya JavaScript telah menggunakan 
+  Merupakan susunan karakter spesial agar kita bisa menggunakan karakter yang 
+  telah digunakan oleh JavaScript, dan kita menggunakannya untuk keperluan lain. 
+  Sebagai contoh seperti halnya JavaScript telah menggunakan 
   tanda petik dua sebagai awalan dan akhiran suatu string maka dengan 
-  *escape sequences*, kita dapat menggunakan secara literal (bukan sebaga
+  *escape sequences*, kita dapat menggunakan secara literal (bukan sebagai
   penanda awalan dan akhiran string) dalam suatu string
 
   **escape-seq.js**
@@ -208,11 +211,11 @@ Merupakan tipe *string* yang digunakan untuk mewakili teks.
   mengetahui untuk meng-input karakter Unicode, kita menggunakan awalan `\u`.
   Awalan ini juga termasuk *escape sequences*.
 
-- *Template Literals*
+- *Template Literals*   
   Serupa dengan *string literals* namun kita dapat menyediakan
   *template* dengan cara mensubstitusikan nama variable yang menyimpan 
   suatu nilai. Khusus *template literals*, *delimiters* (tanda awalan
-  dan akhiran suatu string) menggunakan *backticks* (`). 
+  dan akhiran suatu string) harus menggunakan *backticks* (`). 
 
   **template-literals.js**   
   ```js
@@ -231,10 +234,11 @@ Merupakan *type* yang digunakan untuk mewakili kondisi Boolean
 (benar atau salah). Untuk *type* ini hanya memiliki dua kemungkinan nilai
 yaitu (`true` dan `false`).   
 Di dalam JavaScript dikenal istilah *falsy*, yang artinya untuk suatu 
-nilai dalam JavaScript bernilai `false` jika dikonversi ke *type* Boolean. 
+_value_ dalam JavaScript bernilai `false` jika nilai tersebut 
+dikonversi ke *type* Boolean. 
 
-Berikut adalah nilai yang akan dikonversi menjadi `false` jika dikonversi
-ke *type* Boolean.    
+Berikut adalah nilai yang akan dikonversi menjadi bernilai `false` jika 
+_type_ data tersebut dikonversi ke *type* Boolean.    
 
 **falsy-values.js**
 ```js
@@ -295,10 +299,10 @@ console.log("b === NaN", b === NaN);
 
 ## Type: Symbols
 Digunakan untuk untuk penamaan *key* atau *property name* dalam *object type*.
-Kita akan membahas tentanng Symbol di pertemuan tentang *Object type*.
+Kita akan membahas tentang Symbol di pertemuan tentang *Object type*.
 
 Berikut adalah contoh bahwa `object type` Symbols tidak akan pernah 
-menghasilkan nilai yang sama ketika didefinsikan dengan nilai yang sama   
+menghasilkan nilai yang sama ketika didefinisikan dengan nilai yang sama   
 
 **symbols-demo.js**
 ```js
@@ -331,7 +335,7 @@ console.log(a === b);
 
   **autoconversion-type-.js**
   ```js
-  console.log(10 + " apples");    // => "10 appels": Bilangan 10 dikonversi menjadi suatu string
+  console.log(10 + " apples");    // => "10 apples": Bilangan 10 dikonversi menjadi suatu string
   console.log("7" * "4");         // => 28: kedua string dikonversi ke bilangan
   
   let n = 1 - "x";                // n === NaN; string "x" tidak dapat dikonversi ke bilangan
@@ -466,7 +470,6 @@ console.log(a === b);
    (Diperbolehkan membuat program sendiri apabila tidak dapat menemukan di 
    internet). Jelaskan proses program tersebut berjalan berdasarkan pemahaman
    yang telah kalian pelajari.
---->
 
 1. Jelaskan yang membuat salah atau benar dari dari program berikut?
    ```js
@@ -489,6 +492,32 @@ console.log(a === b);
    Bagaimana hasil kedua baris tersebut? Mengapa hasilnya demikian? Jelaskan.
    Silahkan menggunakan chatGPT namun harus tetap dipahami prosesnya seperti apa.
 
+-->
+
+1. Supardi mempunyai tugas yang diberikan oleh teman fiksi yang bernama
+   Elang dan teman nya ini adalah sebuah _predator_ yang suka memangsa burung
+   lain yang lebih kecil. Supardi sering bercakap-cakap dengan Elang dan berikut
+   adalah percakapannya terkait topik yang diluar dugaan:   
+   **Elang:** Supardi, aku mempunyai suatu pertanyaan terkait JavaScript.    
+   **Supardi:** Apa itu wahai sahabatku?     
+   **Elang:** Coba kamu lakukan bentuk penjumlahan berikut:
+   ```
+   0.1 + 0.1  0.2 + 0.1  0.3 + 0.1  0.4 + 0.1  0.5 + 0.1  0.6 + 0.1
+   0.1 + 0.2  0.2 + 0.2  0.3 + 0.2  0.4 + 0.2  0.5 + 0.2  0.6 + 0.2
+   0.1 + 0.3  0.2 + 0.3  0.3 + 0.3  0.4 + 0.3  0.5 + 0.3  0.6 + 0.3
+   0.1 + 0.4  0.2 + 0.4  0.3 + 0.4  0.4 + 0.4  0.5 + 0.4  0.6 + 0.4
+   0.1 + 0.5  0.2 + 0.5  0.3 + 0.5  0.4 + 0.5  0.5 + 0.5  0.6 + 0.5
+   0.1 + 0.6  0.2 + 0.6  0.3 + 0.6  0.4 + 0.6  0.5 + 0.6  0.6 + 0.6
+   ```
+   Apa yang kamu temukan?    
+   **Supardi**: Oh, aku tahu ini jawabanku ....
+
+   Isikan jawaban yang tepat andai Elang adalah Supardi.
+
+2. Pahami terkait hal tata-cara JavaScript merepresentasikan bilangan desimal.
+   Rekam _summary_ yang telah kalian buat dalam bentuk suara kalian dan sertakan 
+   dalam markdown yang dikumpulkan. Jawablah dengan sesuai, tepat, benar
+   dan mudah dimengerti.
 
 
 
