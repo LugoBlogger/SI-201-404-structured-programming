@@ -25,11 +25,13 @@ const bankAccount = {
 
   get currentBalance() { return this.balance; },
 
-  // set setOwnerName(newName) { this.ownerName = newName; }
+  set setOwnerName(newName) { this.ownerName = newName; }
 }
 
 console.log(bankAccount.currentBalance);
+// bankAccount.balance = 10_000;
+// console.log(bankAccount.currentBalance);
 
-// bankAccount.setOwnerName = "Oliver Hans";
-bankAccount.ownerName = "Oliver Hans";
+bankAccount.setOwnerName = "Oliver Hans";
+// bankAccount.ownerName = "Oliver Hans";
 console.log(bankAccount.ownerName);

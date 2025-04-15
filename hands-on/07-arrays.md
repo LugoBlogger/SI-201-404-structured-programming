@@ -27,7 +27,7 @@ tanda kurung siku. Pembentukan *array* semacam ini disebut
 penting. Berbeda urutan element, berarti menunjukkan array yang berbeda pula.
 Urutan dalam *array* ini disebut *index*. *Index* atau posisi numerik dari
 array ini sangat penting diketahui untuk mengakses element yang kita ingin
-tampilkan (proses *querying*). Di dalam JavaScript *index* berupa bilanga
+tampilkan (proses *querying*). Di dalam JavaScript *index* berupa bilangan
 bulat dimulai dari angka 0 hingga maksimum dari bilangan integer positif
 yang mampu diwakili oleh komputer. Di dalam mesin yang saya miliki
 berada di kisaran $2^{1024} \approx 10^{308}$ bandingkan
