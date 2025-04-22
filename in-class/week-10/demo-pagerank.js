@@ -1,8 +1,14 @@
-const formatNum = require('@stdlib/string-format');
+/* Logs
+   [2025/04/22]    
+   A new import syntax using import format from '@stdlib/string-format'.
+   Set also `packages.json`
+ */
+// const format = require('@stdlib/string/format');
+import format from "@stdlib/string-format";
 
 function printPageRank(t, pageRankArr) {
-  let roundNum = pageRankArr.map((num) => formatNum('%.4f', num))
-  console.log('pageRank at t=', formatNum("%3d", t), roundNum);
+  let roundNum = pageRankArr.map((num) => format('%.4f', num))
+  console.log('pageRank at t=', format("%3d", t), roundNum);
 }
 
 function pageRank(connectiveMatrix, totalIteration) {

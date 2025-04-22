@@ -100,6 +100,8 @@ we add `+1` to `countOne`. After we traverse all the elements in
 
 ## Day 02 (2025-April-23)
 
+### 03-rgb-to-hex-conversion (5-kyū)
+
 ## Day 03 (2025-April-24)
 
 ## Day 04 (2025-April-25)
