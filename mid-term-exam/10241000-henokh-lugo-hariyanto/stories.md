@@ -112,6 +112,9 @@ we add `+1` to `countOne`. After we traverse all the elements in
 
 
 ## Day 06 (2025-April-29)
+### 04-roman-numerals-encoding (6-kyū)
+
+### 05-calculating-with-functions (5-kyū)
 
 ## Day 07 (2025-April-30)
 

@@ -65,5 +65,5 @@ or in `table-record.csv` files
 "2025-April-22","01-is-this-triangle","7-kyū","MATHEMATICS; FUNDAMENTALS","https://www.codewars.com/kata/56606694ec01347ce800001b/train/javascript"
 "2025-April-22","02-bit-counting","6-kyū","BITS;ALGORITHMS","https://www.codewars.com/kata/526571aae218b8ee490006f4/train/javascript"
 "2025-April-23","03-","?-kyū","tag01;tag02;tag03","https://www.codewards.com/kata/??"
-...
+"2025-April-29","04-roman-numerals-encoding","6-kyū","ALGORITHMS","https://www.codewars.com/kata/51b62bf6a9c58071c600001b/train/javascript"
 ```

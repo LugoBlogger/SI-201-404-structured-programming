@@ -4,7 +4,7 @@
    Set also `packages.json`
  */
 // const format = require('@stdlib/string/format');
-import format from "@stdlib/string-format";
+import format from "@stdlib/string-format";  // do not put curly brace for CommonJS module
 
 function printPageRank(t, pageRankArr) {
   let roundNum = pageRankArr.map((num) => format('%.4f', num))

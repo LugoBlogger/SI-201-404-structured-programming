@@ -176,6 +176,45 @@ Berikut gambaran menggunakan `Node.js` dan VScode beserta penulisan kode
 JavaScript   
 <img src="../img-resources/nodejs-and-vscode.png" width="400">
 
+## Module installation in Node.js
+To install a module in your workspace, please go to your the root
+directory of your workspace and type
+```bash
+npm install <package_name>
+```
+
+If you want to install globally such that you will use in your shell,
+put `-g` flag to the module installation with `npm`
+```bash
+npm install <package_name> -g
+```
+
+Some modules have the type of CommonJS module and ES5 module. 
+The recent module uses ES5 module for exporting and importing functions.
+In this tutorial, we use ES5 module, even the module is CommonJS module.
+We also need to set in `package.json` for local installation of module
+```json
+{
+   ....
+  "type": "module"
+}
+```
+
+Then, we can import a module (e.g., `@stdlib/string-format`) with
+```js
+import format from "@stdlib/string-format";  // import a CommonJS module
+```
+or if the module is a ES5 module
+```js
+import { assert } from "chai";
+```
+
+In the previous year, we use the old convention for importing a module
+by `require('<package-name>')`, for example
+```js
+const formatStr = require('@stdlib/string-format')
+```
+but now we do not use it anymore in here
 
 ## Tutorial singkat Markdown
 
@@ -196,8 +235,7 @@ perlu di-install VSCode extension: [**Markdown Preview Github Styling**](https:/
 > berkas disatukan menjadi berkas `.zip`.   
 > **PASTIKAN** berkas `md` sudah dilakukan *preview*, sehingga kode *markdown*
 > bisa di-*preview* dengan benar.  
-> Format penamaan file: `NIM_NAMA.md` atau `NIM_NAMA.zip` (boleh nama
-> lengkap atau nama panggilan.
+> Format penamaan file: `NIM_NAMA_LENGKAP.md` atau `NIM_NAMA_LENGKAP.zip` 
 
 1. Tuliskan pengalaman belajar mulai dari awal praktikum hingga praktikum 
    selesai. Bisa menyertakanan *screenshot*, atau potongan kode selama
