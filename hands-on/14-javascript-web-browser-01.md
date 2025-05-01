@@ -130,6 +130,14 @@ Langkah-langkah untuk mempersiapkan *workspace*
    <img src="../img-resources/tic-tac-toe-initial-program.png" width=400>
 
 
+**Troubleshooting**     
+1. If you have a problem when running `npm run dev` such that it
+   closes immediately without any error, delete `node_modules` folder inside
+   `tic-tac-toe` directory. After that, rerun 
+   ```bash
+   npm install react react-dom next
+   ```
+
 ## Gambaran singkat terkait program dan React
 
 Selama pengembangan program ini kita akan membuka secara bersamaan
@@ -403,7 +411,7 @@ function Square({ value }) {
   );
 }
 ```
-Pada potonga update kode bagian komponen `Square()` di atas
+Pada potongan update kode bagian komponen `Square()` di atas
 terlihat bahwa fungsi callback `handleClick()` akan 
 melakukan *print out* ke console setiap `Square()` element
 di klik pada papan permainan `Board()`. Kita jadikan fungsi
@@ -835,7 +843,7 @@ function handleClick(i, squares, setSquares, xIsNext, setXIsNext) {
 }
 ```
 
-```js
+```jsx
 export default function Board() {
   const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
@@ -848,7 +856,12 @@ export default function Board() {
     statusText = "Next player: " + (xIsNext ? "X" : "O");
   }
 
-  // the rest of lines are the same as before
+  return (
+    <>
+      <div className="status">{statusText}</div>
+      // the rest of lines are the same as before
+    </>
+  };
 }
 ```
 
