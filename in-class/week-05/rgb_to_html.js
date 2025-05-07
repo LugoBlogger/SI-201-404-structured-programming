@@ -1,4 +1,7 @@
-const prompt = require("prompt-sync")();
+// to use import syntax, set in package.json {"type": "module"}
+// const prompt = require("prompt-sync")();
+import promptSync from "prompt-sync";
+const prompt = promptSync();
 
 const red = prompt("RGB red: ");
 const green = prompt("RGB green: ");

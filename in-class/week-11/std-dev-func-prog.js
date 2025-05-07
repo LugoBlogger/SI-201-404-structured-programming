@@ -1,4 +1,7 @@
-import format from "@stdlib/string-format"
+
+// to use import syntax, set in package.json {"type": "module"}
+// import format from "@stdlib/string-format"
+import format from "@stdlib/string-format";  // do not put curly brace for CommonJS module
 
 const map = function(arr, callbackFunc) { 
   return arr.map(callbackFunc); };

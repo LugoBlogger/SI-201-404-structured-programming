@@ -1,3 +1,5 @@
+// to use import syntax, set in package.json {"type": "module"}
+// import format from "@stdlib/string-format"
 import format from "@stdlib/string-format"
 
 let data = [1, 1, 3, 3, 5, 7, 7, 9, 9];

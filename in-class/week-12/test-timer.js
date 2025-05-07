@@ -3,5 +3,5 @@ let clock = setInterval(() => {
   console.log(new Date().toLocaleTimeString());
 }, 1_000);
 
-setTimeout(() => { clearInterval(clock); }, 11_000);
+setTimeout(() => { clearInterval(clock); }, 5_000);
 // clearTimeout(clock);

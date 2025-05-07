@@ -7,7 +7,9 @@
 // console.log will print the output in VSCode terminal where we run index.js
 
 // Importing https libraries
-const http = require("http");
+// to use import syntax, set in package.json {"type": "module"}
+// const http = require("http");
+import http from "http";
 
 // Creating a server
 const server = http.createServer((req, res) => {

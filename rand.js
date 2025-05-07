@@ -1,7 +1,10 @@
-// install the stdlib/random with the following command
-// $ npm install @stdlib/random
+// install the @stdlib/random-iter-uniform with the following command
+// npm install @stdlib/random-iter-uniform
 
-let iterator = require("@stdlib/random/iter/uniform")
+// A new import syntax using import format from '@stdlib/random-iter-uniform'.
+// Set also `packages.json`
+// let iterator = require("@stdlib/random/iter/uniform")
+import iterator from "@stdlib/random-iter-uniform";
 
 let iter = iterator(0., 1., {
   "seed": 24_01_24});

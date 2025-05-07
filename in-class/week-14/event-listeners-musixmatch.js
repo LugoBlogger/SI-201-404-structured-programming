@@ -1,15 +1,24 @@
-/* The following program will parse lyrics from musixmatch.com
- * Update 2024 May 01. It is possible that in the future, the website
- * will change the layout, so we have to revise the parsing procedure.
+/* Logs
+ * - 2024/05/01
+ *   The following program will parse lyrics from musixmatch.com
+ *   Update 2024 May 01. It is possible that in the future, the website
+ *   will change the layout, so we have to revise the parsing procedure.
+ * 
+ * - 2024/05/07
+ *   Update importing https and HTMLParser using `import moduleName from 'module'`.
+ *   Use rawText instead of _rawText. Update `lyricsTitleClassAttr`
  */
 
-const https = require('https');
-const HTMLParser = require('node-html-parser');
+// to use import syntax, set in package.json {"type": "module"}
+// const https = require('https');
+// const HTMLParser = require('node-html-parser');
+import https from "https";
+import HTMLParser from "node-html-parser";
 
 // Read the text content of the URL and asynchronously pass it to the callback
 function getText(url, callback) {
   // Start an HTTP GET request for the URL
-  request = https.get(url);
+  let request = https.get(url);
   
   // Register a function to handle the "response" event
   request.on("response", response => {
@@ -53,21 +62,32 @@ function callback(err, data) {
   // console.log(`Data: ${data}`);
   const root = HTMLParser.parse(data);
 
+  let lyricsArtistClassAttr = "css-175oi2r r-1awozwy r-izgom r-1m7mu0x r-18u37iz r-1r8g8re r-1777fci r-ws14 r-1j93nrh r-3pj75a";
+  lyricsArtistClassAttr = "." + (lyricsArtistClassAttr.replaceAll(" ", "."));
+  let lyricsArtist = root.querySelector(lyricsArtistClassAttr)
+    .childNodes[2].childNodes[1].rawText;
+  // console.log(lyricsArtist);
+
   // Enter the lyrics title and lyrics tag area (class=lyricClassAttr)
-  let lyricsTitleClassAttr = "css-1rynq56 r-fdjqy7 r-1grxjyw r-zz5t5d r-37tt59 r-5oul0u r-14gqq1x";
+  // let lyricsTitleClassAttr = "css-1rynq56 r-fdjqy7 r-1grxjyw r-zz5t5d r-37tt59 r-5oul0u r-14gqq1x";
+  let lyricsTitleClassAttr = "css-146c3p1 r-fdjqy7 r-1grxjyw r-zz5t5d r-37tt59 r-5oul0u r-14gqq1x";
   lyricsTitleClassAttr = "." + (lyricsTitleClassAttr.replaceAll(" ", "."));
   let lyricsTitle = root.querySelector(lyricsTitleClassAttr)
-    .childNodes[0]._rawText;
+    .childNodes[0].rawText;
 
   let lyricsClassAttr = "css-175oi2r r-13awgt0 r-eqz5dr r-1v1z2uz";
   lyricsClassAttr = "." + (lyricsClassAttr.replaceAll(" ", "."));
   let selectedLyrics = root.querySelector(lyricsClassAttr).childNodes;
+  // console.log(selectedLyrics[0].rawAttrs.split("=")[1]);
 
   let lyricsText = [];
 
   let lyricsPart;
-  let lyricsPartClassAttr = "css-175oi2r r-zd98yo";
+  let lyricsPartClassAttr = "css-175oi2r r-zd98yo";   // song section <div>
+  let lyricsPartFormAttr = "css-175oi2r r-k200y r-18u37iz";  // for song section
+  let lyricsPartTextRowAttr = "css-175oi2r r-18u37iz r-1w6e6rj";  // for each row of lyrics
   let currentLyricsPartClassAttr;
+  let currentLyricsPartFormOrTextAttr;
   for (let i = 0; i < selectedLyrics.length; i++) {
     lyricsPart = selectedLyrics[i];
 
@@ -76,19 +96,26 @@ function callback(err, data) {
       continue; }
 
     for (let lyricsRow of lyricsPart.childNodes) {
-      lyricsText.push(lyricsRow.childNodes[0].childNodes[0]._rawText);
+      currentLyricsPartFormOrTextAttr = lyricsRow.rawAttrs.split("=")[1].replaceAll("\"", "");
+      if (currentLyricsPartFormOrTextAttr === lyricsPartFormAttr) {
+        lyricsText.push(lyricsRow.childNodes[0].childNodes[0].rawText);
+      } else {
+        lyricsText.push("  " + lyricsRow.childNodes[0].childNodes[0].rawText);
+      }
     }
     
   }
 
-  console.log(lyricsTitle);
+  console.log(`${lyricsArtist} - ${lyricsTitle}`);
   // replace HTML straight apostrophe &#x27 with "\'" 
   console.log(lyricsText.join("\n").replaceAll("&#x27;", "\'").trim());
 }
 
 const musixmatchURL = "https://www.musixmatch.com/lyrics/"
 // const url = "Dream-Theater/Through-Her-Eyes-Scene-Five";
-const url = "Taylor-Swift/Fortnight-Post-Malone"
+// const url = "Taylor-Swift/Fortnight-Post-Malone";
+// const url = "MY-FIRST-STORY/Second-limit";
+const url = "sakanaction-2/怪獣";
 
 // const musixmatchURL = "https://www.musixmatch.com/lyrics/"
 // const url = "Dream-Theater/Through-Her-Eyes-Scene-Three";   // 404. The link is not correct 
