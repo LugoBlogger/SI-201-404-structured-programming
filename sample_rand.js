@@ -11,8 +11,10 @@ let sample_factory = sample.factory(
   {"seed": 25_05_07});
 
 // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const startNum = 0;
+const endNum = 29;
 let arr = [];
-for (let idx = 1; idx < 35; idx++) {
+for (let idx = startNum; idx < endNum + 1; idx++) {
   arr.push(idx);
 }
 
