@@ -4,9 +4,12 @@
  *   Update 2024 May 01. It is possible that in the future, the website
  *   will change the layout, so we have to revise the parsing procedure.
  * 
- * - 2024/05/07
+ * - 2025/05/07
  *   Update importing https and HTMLParser using `import moduleName from 'module'`.
  *   Use rawText instead of _rawText. Update `lyricsTitleClassAttr`
+ * 
+ * - 2025/05/21
+ *   I need to add header for the request to imitate the request from a browser
  */
 
 // to use import syntax, set in package.json {"type": "module"}
@@ -17,14 +20,24 @@ import HTMLParser from "node-html-parser";
 
 // Read the text content of the URL and asynchronously pass it to the callback
 function getText(url, callback) {
+  // Define request options with headers
+  const options = {
+    headers: {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+      + "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  };
+
   // Start an HTTP GET request for the URL
-  let request = https.get(url);
+  let request = https.get(url, options);
+  // console.log(request);
   
   // Register a function to handle the "response" event
   request.on("response", response => {
     // The response event means that response headers have been received
     let httpStatus = response.statusCode;
 
+    // console.log(response)
     // console.log(httpStatus);
 
     // The body of the HTTP response has not been received yet.
@@ -84,6 +97,7 @@ function callback(err, data) {
 
   let lyricsPart;
   let lyricsPartClassAttr = "css-175oi2r r-zd98yo";   // song section <div>
+  let lyricsPartClassAttrEmpty = "css-175oi2r r-zd98yo r-kbtpn4";  // empty song section <div> (new paragraph)
   let lyricsPartFormAttr = "css-175oi2r r-k200y r-18u37iz";  // for song section
   let lyricsPartTextRowAttr = "css-175oi2r r-18u37iz r-1w6e6rj";  // for each row of lyrics
   let currentLyricsPartClassAttr;
@@ -92,8 +106,14 @@ function callback(err, data) {
     lyricsPart = selectedLyrics[i];
 
     currentLyricsPartClassAttr = lyricsPart.rawAttrs.split("=")[1].replaceAll("\"", "");
-    if (i === 0 || (currentLyricsPartClassAttr !== lyricsPartClassAttr)) { 
+    if (i === 0 || (currentLyricsPartClassAttr !== lyricsPartClassAttr ) && 
+                    (currentLyricsPartClassAttr !== lyricsPartClassAttrEmpty)) { 
       continue; }
+
+    // console.log(currentLyricsPartClassAttr);
+    if (currentLyricsPartClassAttr === lyricsPartClassAttrEmpty) {
+      lyricsText.push("")
+    }
 
     for (let lyricsRow of lyricsPart.childNodes) {
       currentLyricsPartFormOrTextAttr = lyricsRow.rawAttrs.split("=")[1].replaceAll("\"", "");
@@ -114,8 +134,8 @@ function callback(err, data) {
 const musixmatchURL = "https://www.musixmatch.com/lyrics/"
 // const url = "Dream-Theater/Through-Her-Eyes-Scene-Five";
 // const url = "Taylor-Swift/Fortnight-Post-Malone";
-// const url = "MY-FIRST-STORY/Second-limit";
-const url = "sakanaction-2/怪獣";
+const url = "MY-FIRST-STORY/Second-limit";
+// const url = "sakanaction-2/怪獣";
 
 // const musixmatchURL = "https://www.musixmatch.com/lyrics/"
 // const url = "Dream-Theater/Through-Her-Eyes-Scene-Three";   // 404. The link is not correct 

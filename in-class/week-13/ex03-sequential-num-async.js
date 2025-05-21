@@ -1,7 +1,8 @@
 // The following program will print sequentially
 // numbers from 1 to 10 with each one second delay
 
-let state = {num: 0}
+let state = {num: 0};
+
 
 let callbackFunc = () => {
   state.num += 1;

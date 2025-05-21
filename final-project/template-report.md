@@ -1,9 +1,10 @@
-# [Judul besar atau nama program yang dibuat]
+# Judul besar atau nama program yang dibuat
 
 - Nama mahasiswa 1 (NIM) (80%)
 - Nama mahasiswa 2 (NIM) (100%)
 - Nama mahasiswa 3 (NIM) (20%)
 - Nama mahasiswa 4 (NIM) (100%)
+- dst.
 
 ## Pendahuluan
 Beberapa paragraf pengantar untuk membawa pembaca memahami program yang kalian 

@@ -1,42 +1,66 @@
 // This is a version of `event-listeners-musixmatch.js` using Promise object
 
-const HTMLParser = require("node-html-parser");
+// const HTMLParser = require("node-html-parser");
+import HTMLParser from "node-html-parser";
 
 function displayLyrics(htmlBody) {
   const root = HTMLParser.parse(htmlBody);
 
-    // Enter the lyrics title and lyrics tag area (class=lyricClassAttr)
-  let lyricsTitleClassAttr = "css-1rynq56 r-fdjqy7 r-1grxjyw r-zz5t5d r-37tt59 r-5oul0u r-14gqq1x";
+  let lyricsArtistClassAttr = "css-175oi2r r-1awozwy r-izgom r-1m7mu0x r-18u37iz r-1r8g8re r-1777fci r-ws14 r-1j93nrh r-3pj75a";
+  lyricsArtistClassAttr = "." + (lyricsArtistClassAttr.replaceAll(" ", "."));
+  let lyricsArtist = root.querySelector(lyricsArtistClassAttr)
+    .childNodes[2].childNodes[1].rawText;
+  // console.log(lyricsArtist);
+
+  // Enter the lyrics title and lyrics tag area (class=lyricClassAttr)
+  // let lyricsTitleClassAttr = "css-1rynq56 r-fdjqy7 r-1grxjyw r-zz5t5d r-37tt59 r-5oul0u r-14gqq1x";
+  let lyricsTitleClassAttr = "css-146c3p1 r-fdjqy7 r-1grxjyw r-zz5t5d r-37tt59 r-5oul0u r-14gqq1x";
   lyricsTitleClassAttr = "." + (lyricsTitleClassAttr.replaceAll(" ", "."));
   let lyricsTitle = root.querySelector(lyricsTitleClassAttr)
-    .childNodes[0]._rawText;
+    .childNodes[0].rawText;
 
   let lyricsClassAttr = "css-175oi2r r-13awgt0 r-eqz5dr r-1v1z2uz";
   lyricsClassAttr = "." + (lyricsClassAttr.replaceAll(" ", "."));
   let selectedLyrics = root.querySelector(lyricsClassAttr).childNodes;
+  // console.log(selectedLyrics[0].rawAttrs.split("=")[1]);
 
   let lyricsText = [];
 
   let lyricsPart;
-  let lyricsPartClassAttr = "css-175oi2r r-zd98yo";
+  let lyricsPartClassAttr = "css-175oi2r r-zd98yo";   // song section <div>
+  let lyricsPartClassAttrEmpty = "css-175oi2r r-zd98yo r-kbtpn4";  // empty song section <div> (new paragraph)
+  let lyricsPartFormAttr = "css-175oi2r r-k200y r-18u37iz";  // for song section
+  let lyricsPartTextRowAttr = "css-175oi2r r-18u37iz r-1w6e6rj";  // for each row of lyrics
   let currentLyricsPartClassAttr;
+  let currentLyricsPartFormOrTextAttr;
   for (let i = 0; i < selectedLyrics.length; i++) {
     lyricsPart = selectedLyrics[i];
 
     currentLyricsPartClassAttr = lyricsPart.rawAttrs.split("=")[1].replaceAll("\"", "");
-    if (i === 0 || (currentLyricsPartClassAttr !== lyricsPartClassAttr)) { 
-      continue; 
+    if (i === 0 || (currentLyricsPartClassAttr !== lyricsPartClassAttr ) && 
+                    (currentLyricsPartClassAttr !== lyricsPartClassAttrEmpty)) { 
+      continue; }
+
+    // console.log(currentLyricsPartClassAttr);
+    if (currentLyricsPartClassAttr === lyricsPartClassAttrEmpty) {
+      lyricsText.push("")
     }
 
     for (let lyricsRow of lyricsPart.childNodes) {
-      lyricsText.push(lyricsRow.childNodes[0].childNodes[0]._rawText);
+      currentLyricsPartFormOrTextAttr = lyricsRow.rawAttrs.split("=")[1].replaceAll("\"", "");
+      if (currentLyricsPartFormOrTextAttr === lyricsPartFormAttr) {
+        lyricsText.push(lyricsRow.childNodes[0].childNodes[0].rawText);
+      } else {
+        lyricsText.push("  " + lyricsRow.childNodes[0].childNodes[0].rawText);
+      }
     }
     
   }
 
-  console.log(lyricsTitle);
+  console.log(`${lyricsArtist} - ${lyricsTitle}`);
   // replace HTML straight apostrophe &#x27 with "\'" 
   console.log(lyricsText.join("\n").replaceAll("&#x27;", "\'").trim());
+
 }
 
 function c1(response) {   // callback 1 for handling response
