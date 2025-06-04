@@ -91,7 +91,10 @@ function c3(err) {        // callback 3 for error handling
 }
 
 const musixmatchURL = "https://www.musixmatch.com/lyrics/"
-const url = "Dream-Theater/Through-Her-Eyes-Scene-Five";     // Success
+// const url = "Dream-Theater/Through-Her-Eyes-Scene-Five";     // Success
+// const url = "Taylor-Swift/Fortnight-Post-Malone";
+// const url = "MY-FIRST-STORY/Second-limit";
+const url = "sakanaction-2/怪獣";
 
 // const musixmatchURL = "https://www.musixmatch.com/lyrics/"
 // const url = "Dream-Theater/Through-Her-Eyes-Scene-Three";   // 404. The link is not correct 

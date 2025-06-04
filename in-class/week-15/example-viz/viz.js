@@ -42,7 +42,8 @@ function plotlyConnectedScatter(output) {
     mode: "lines", 
     type: "scatter",
     line: {
-      color: "black"}};
+      color: "black", 
+      shape: "spline"}};
 
   // design iteration 2 (marker)
   let trace2 = {x: miles, y: gas, 
@@ -77,7 +78,7 @@ function plotlyConnectedScatter(output) {
     type: "scatter", 
     text: year, 
     textposition: textside, 
-    textfont: { size: 6 }};
+    textfont: { size: 12 }};
 
   let data = [trace1, trace2, trace3];
 

@@ -1,15 +1,24 @@
 /* The following program will parse lyrics from utaten.com
- * Update 2023 May 05. It is possible that in the future, the website
- * will change the layout, so we have to revise the parsing procedure.
+ * Logs
+ * - 2023/05/05
+ *   It is possible that in the future, the website
+ *   will change the layout, so we have to revise the parsing procedure.
+ * 
+ * - 2025/05/21
+ *   Update the code according to the new layout and use import module instead
+ *   of require.
+ *   Add band name and improve the layout
  */
 
-const https = require('https');
-const HTMLParser = require('node-html-parser');
+// const https = require('https');
+// const HTMLParser = require('node-html-parser');
+import https from 'https';
+import HTMLParser from 'node-html-parser';
 
 // Read the text content of the URL and asynchronously pass it to the callback
 function getText(url, callback) {
   // Start an HTTP GET request for the URL
-  request = https.get(url);
+  let request = https.get(url);
   
   // Register a function to handle the "response" event
   request.on("response", response => {
@@ -58,14 +67,27 @@ function callback(err, data) {
   // is hiragana only)
   let selectedLyrics = root.querySelector('.hiragana').childNodes;
   let lyricsTitle = root.querySelector('.newLyricTitle__main')
-    .childNodes[0]._rawText;
+    .childNodes[0].rawText;
+  lyricsTitle = lyricsTitle.trim();
+
+  // Get artis name
+  let lyricsArtist = root.querySelector('.newLyricWork__name')
+    .childNodes[1].childNodes[1].childNodes[0]["_rawText"];
+  lyricsArtist = lyricsArtist.trim();
 
   let kanjiText = [];
 
   for (let htmlElem of selectedLyrics) {
+    // console.log(htmlElem);
+    // console.log("_rawText" in htmlElem);
+    // break;
+
     if ("_rawText" in htmlElem) {                 // Enter childNodes that contains hiragana only
       // console.log(htmlElem._rawText);
-      kanjiText.push(htmlElem._rawText);
+      const rawText = htmlElem._rawText;
+      if (rawText !== "\n") {
+        kanjiText.push(htmlElem._rawText);
+      }
     } else {                                      // Enter childNoes with kanji
       // We enter the .rb class
       let rbElement = htmlElem.querySelector('.rb');    // Select only kanji not furigana
@@ -75,8 +97,8 @@ function callback(err, data) {
     }
   }
 
-  console.log(lyricsTitle.trim());
-  // console.log(kanjiText.join("").trim());    
+  console.log(`${lyricsArtist} - ${lyricsTitle}`);
+  console.log(kanjiText.join("").trim());    
 }
 
 const url1 = "https://utaten.com/lyric/ac23011918/";   // JYOCHO (文明開化の模様)

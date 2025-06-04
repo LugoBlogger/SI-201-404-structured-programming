@@ -131,6 +131,9 @@ function callback(err, data) {
   console.log(lyricsText.join("\n").replaceAll("&#x27;", "\'").trim());
 }
 
+
+
+
 const musixmatchURL = "https://www.musixmatch.com/lyrics/"
 // const url = "Dream-Theater/Through-Her-Eyes-Scene-Five";
 // const url = "Taylor-Swift/Fortnight-Post-Malone";

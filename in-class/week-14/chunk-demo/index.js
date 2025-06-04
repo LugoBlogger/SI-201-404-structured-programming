@@ -35,8 +35,10 @@ const server = http.createServer((req, res) => {
     req.on("data", (chunk) => {
       // Storing the chunk data
       body.push(chunk);
-      console.log(body);
+      console.log("chunk", chunk);
     });
+
+    console.log("body", body)
 
     req.on("end", () => {
       // Parsing the chunk data
@@ -44,7 +46,7 @@ const server = http.createServer((req, res) => {
       const message = parseBody.split("=")[1];
 
       // Printing the data
-      console.log(message);
+      console.log("message", message);
     });
 
     res.statusCode = 302;
@@ -55,3 +57,5 @@ const server = http.createServer((req, res) => {
 
 // Starting the server
 server.listen(3000);
+console.log(" Go to: http://localhost:3000");
+console.log(" Press Ctrl+C to stop the server");
